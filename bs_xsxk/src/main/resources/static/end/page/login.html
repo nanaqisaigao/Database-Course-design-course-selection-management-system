@@ -74,13 +74,32 @@
     new Vue({
         el: "#app",
         data: {
-            user: {}
+            user: {}//接收前端输入的值
 
         },
         created: function () {
 
         },
         methods: {
+            login(){
+                //把三个输入的参数调入后台的/login接口
+                axios.post("/login",this.user).then(res=>{//传入后   判断Result返回的code是否成功（为0）
+                if(res.data.code === '0'){
+                    let user = res.data.data;
+                    localStorage.setItem('user', JSON.stringify(user));
+                    // 在HTML5中，新加入了一个localStorage特性，这个特性主要是用来作为本地存储来使用的
+                    // JSON.stringify() 方法将一个 JavaScript 对象或值转换为 JSON 字符串
+                    if(user && user.level && user.level === 1){
+                        window.location = "/end/page/accountAdminInfo.html";
+                        if(user && user.level && user.level === 1){
+                            window.location = "/end/page/accountAdminInfo.html";
+                            if(user && user.level && user.level === 1){
+                                window.location = "/end/page/accountAdminInfo.html";
+                    }
+                }
+                })
+
+            }
         }
     });
 </script>

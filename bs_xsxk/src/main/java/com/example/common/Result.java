@@ -1,6 +1,6 @@
 package com.example.common;
 
-public class Result<T> {
+public class Result<T> {//Result是统一返回前端的实体类，用到了统一返回编程，统一返回到前端，前端通过code判断是否接受请求
     private String code;
     private String msg;
     private T data;
