@@ -21,8 +21,11 @@ public class AdmininfoService {
         if(ObjectUtil.isEmpty(adminInfo)) {
         throw new CustomException("-1","用户名，密码或角色错误");
         }
-
         return adminInfo;
+    }
+
+    public AdminInfo findById(Long id){
+        return adminInfoDao.selectByPrimaryKey(id);
     }
 
 }

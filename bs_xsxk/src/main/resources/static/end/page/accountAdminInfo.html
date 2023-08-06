@@ -1,12 +1,11 @@
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml"
       xmlns:v-bind="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="pragma" content="no-cache" />
-    <meta http-equiv="content-type" content="no-cache, must-revalidate" />
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta http-equiv="content-type" content="no-cache, must-revalidate"/>
     <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT"/>
     <title>个人信息</title>
 
@@ -19,6 +18,7 @@
         [v-cloak] {
             display: none;
         }
+
         .table th, .table td {
             text-align: center !important;
             vertical-align: middle !important;
@@ -32,7 +32,8 @@
             <nav class="navbar navbar-default top-navbar" role="navigation">
                 <div class="row">
                     <div class="col-md-2">
-                        <a class="navbar-brand" style="width:100%; background-color: darkslateblue"><strong style="font-size: 20px;">学生选课管理系统</strong></a>
+                        <a class="navbar-brand" style="width:100%; background-color: darkslateblue"><strong
+                                style="font-size: 20px;">学生选课管理系统</strong></a>
                     </div>
                     <div class="col-md-10">
 
@@ -43,10 +44,12 @@
                                     <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                                 </a>
                                 <ul class="dropdown-menu dropdown-user">
-                                    <li><a href="javascript:void(0)" @click="personalPage"><i class="fa fa-user fa-fw"></i> 个人信息</a>
+                                    <li><a href="javascript:void(0)" @click="personalPage"><i
+                                            class="fa fa-user fa-fw"></i> 个人信息</a>
                                     </li>
                                     <li class="divider"></li>
-                                    <li><a href="javascript:void(0)" @click="logout"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
+                                    <li><a href="javascript:void(0)" @click="logout"><i
+                                            class="fa fa-sign-out fa-fw"></i> 退出</a>
                                     </li>
                                 </ul>
                             </li>
@@ -65,32 +68,46 @@
                         <li>
                             <a href="#"><i class="fa fa-sitemap"></i> 信息管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse in">
-								<li>
-									<a href="adminInfo.html"><i class="fa fa-table sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">管理员信息</span></a>
-								</li>
-								<li>
-									<a href="teacherInfo.html"><i class="fa fa-table sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">教师信息</span></a>
-								</li>
-								<li>
-									<a href="studentInfo.html"><i class="fa fa-table sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">学生信息</span></a>
-								</li>
-								<li>
-									<a href="xueyuanInfo.html"><i class="fa fa-table sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">学院信息</span></a>
-								</li>
-								<li>
-									<a href="zhuanyeInfo.html"><i class="fa fa-table sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">专业信息</span></a>
-								</li>
-								<li>
-									<a href="classInfo.html"><i class="fa fa-table sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">课程信息</span></a>
-								</li>
+                                <li>
+                                    <a href="adminInfo.html"><i class="fa fa-table sub-icon-mg"
+                                                                aria-hidden="true"></i><span
+                                            class="mini-sub-pro">管理员信息</span></a>
+                                </li>
+                                <li>
+                                    <a href="teacherInfo.html"><i class="fa fa-table sub-icon-mg"
+                                                                  aria-hidden="true"></i><span
+                                            class="mini-sub-pro">教师信息</span></a>
+                                </li>
+                                <li>
+                                    <a href="studentInfo.html"><i class="fa fa-table sub-icon-mg"
+                                                                  aria-hidden="true"></i><span
+                                            class="mini-sub-pro">学生信息</span></a>
+                                </li>
+                                <li>
+                                    <a href="xueyuanInfo.html"><i class="fa fa-table sub-icon-mg"
+                                                                  aria-hidden="true"></i><span
+                                            class="mini-sub-pro">学院信息</span></a>
+                                </li>
+                                <li>
+                                    <a href="zhuanyeInfo.html"><i class="fa fa-table sub-icon-mg"
+                                                                  aria-hidden="true"></i><span
+                                            class="mini-sub-pro">专业信息</span></a>
+                                </li>
+                                <li>
+                                    <a href="classInfo.html"><i class="fa fa-table sub-icon-mg"
+                                                                aria-hidden="true"></i><span
+                                            class="mini-sub-pro">课程信息</span></a>
+                                </li>
 
-								<li>
-									<a href="xuankeInfo.html"><i class="fa fa-table sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">选课信息</span></a>
-								</li>
+                                <li>
+                                    <a href="xuankeInfo.html"><i class="fa fa-table sub-icon-mg" aria-hidden="true"></i><span
+                                            class="mini-sub-pro">选课信息</span></a>
+                                </li>
 
 
                                 <li>
-                                    <a href="javascript:void(0)" @click="personalPage" class="active-menu"><i class="fa fa-user"></i>个人信息</a>
+                                    <a href="javascript:void(0)" @click="personalPage" class="active-menu"><i
+                                            class="fa fa-user"></i>个人信息</a>
                                 </li>
 
                             </ul>
@@ -122,7 +139,8 @@
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">姓名</label>
                                             <div class="col-sm-7">
-                                                <input type="text" class="form-control" v-model="entity.name" placeholder="请输入姓名">
+                                                <input type="text" class="form-control" v-model="entity.name"
+                                                       placeholder="请输入姓名">
                                             </div>
                                         </div>
 
@@ -141,19 +159,21 @@
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">年龄</label>
                                             <div class="col-sm-7">
-                                                <input type="text" class="form-control" v-model="entity.age" placeholder="请输入年龄">
+                                                <input type="text" class="form-control" v-model="entity.age"
+                                                       placeholder="请输入年龄">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">电话</label>
                                             <div class="col-sm-7">
-                                                <input type="text" class="form-control" v-model="entity.phone" placeholder="请输入电话">
+                                                <input type="text" class="form-control" v-model="entity.phone"
+                                                       placeholder="请输入电话">
                                             </div>
                                         </div>
-
                                     </form>
                                     <div style="text-align: center">
+                                        <button class="btn btn-primary">保存</button>
                                     </div>
                                 </div>
                             </div>
@@ -184,6 +204,7 @@
             center: true
         })
     }
+
     new Vue({
         el: '#wrapper',
         data: {
@@ -196,12 +217,20 @@
             document.getElementById("nav-id").style.height = (menuHeight > bodyHeight ? menuHeight : bodyHeight) + 'px';
             this.user = JSON.parse(localStorage.getItem('user'));
 
-
+            this.loadData();//页面加载时调用 获取 登录对象的方法
 
         },
         methods: {
+            loadData() {
+                axios.get("/getUser").then(res => {
+                    if(res.data.code === "0"){
+                    this.entity = res.data.data;
+                    }else{
+                        msg("error",res.data.msg);
+                    }
+                        })
+            },
             logout() {
-
             }
         }
     })
