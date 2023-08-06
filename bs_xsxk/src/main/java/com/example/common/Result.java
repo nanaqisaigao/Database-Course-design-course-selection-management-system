@@ -39,7 +39,6 @@ public class Result<T> {//Result是统一返回前端的实体类，用到了统
         tResult.setMsg(msg);
         return tResult;
     }
-
     public String getCode() {
         return code;
     }

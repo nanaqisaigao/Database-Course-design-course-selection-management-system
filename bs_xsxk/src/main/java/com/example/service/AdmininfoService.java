@@ -28,4 +28,8 @@ public class AdmininfoService {
         return adminInfoDao.selectByPrimaryKey(id);
     }
 
+    public void update(AdminInfo adminInfo){
+        adminInfoDao.updateByPrimaryKeySelective(adminInfo);
+    }
+
 }

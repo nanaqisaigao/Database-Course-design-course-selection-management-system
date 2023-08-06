@@ -173,7 +173,7 @@
                                         </div>
                                     </form>
                                     <div style="text-align: center">
-                                        <button class="btn btn-primary">保存</button>
+                                        <button class="btn btn-primary" @click="update()">保存</button>
                                     </div>
                                 </div>
                             </div>
@@ -221,7 +221,7 @@
 
         },
         methods: {
-            loadData() {
+            loadData() {//显示登录信息
                 axios.get("/getUser").then(res => {
                     if(res.data.code === "0"){
                     this.entity = res.data.data;
@@ -230,6 +230,18 @@
                     }
                         })
             },
+
+            update(){//用put方法把整个更改的表格中的信息返回给控制器
+                axios.put("/adminInfo",this.entity).then(res=>{
+                    if(res.data.code === 0){
+                        msg("success","保存成功");
+                        this.loadData();
+                    }else{
+                        msg("error",res.data.msg);
+                    }
+                })
+            },
+
             logout() {
             }
         }
