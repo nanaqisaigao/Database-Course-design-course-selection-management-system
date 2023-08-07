@@ -4,7 +4,7 @@ import cn.hutool.core.util.ObjectUtil;
 import com.example.common.Result;
 import com.example.entity.Account;
 import com.example.entity.AdminInfo;
-import com.example.service.AdmininfoService;
+import com.example.service.AdminInfoService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping
 public class AccountController {
     @Resource
-    private AdmininfoService admininfoService;
+    private AdminInfoService admininfoService;
     @PostMapping("/login")
     public  Result login(@RequestBody Account user,HttpServletRequest request){
         //校验数据是否填

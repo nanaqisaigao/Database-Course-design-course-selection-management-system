@@ -2,7 +2,7 @@ package com.example.controller;
 
 import com.example.common.Result;
 import com.example.entity.AdminInfo;
-import com.example.service.AdmininfoService;
+import com.example.service.AdminInfoService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/adminInfo")
 public class AdminInfoController {
     @Resource
-    private AdmininfoService admininfoService;
+    private AdminInfoService admininfoService;
 
     @PutMapping
     public Result update(@RequestBody AdminInfo adminInfo){

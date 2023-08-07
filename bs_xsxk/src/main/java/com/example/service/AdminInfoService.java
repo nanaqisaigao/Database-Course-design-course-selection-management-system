@@ -12,7 +12,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Service
-public class AdmininfoService {
+public class AdminInfoService {
     @Resource
     private AdminInfoDao adminInfoDao;
 
