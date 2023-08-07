@@ -32,5 +32,9 @@ public class AdminInfoController {
         return Result.success(list);
     }
 
-
+    @DeleteMapping("/{id}")
+    public  Result deleteById(@PathVariable(value = "id") Long id){
+        admininfoService.deleteById(id);
+        return Result.success();
+    }
 }

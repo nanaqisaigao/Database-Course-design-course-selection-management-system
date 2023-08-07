@@ -53,4 +53,8 @@ public class AdmininfoService {
         return adminInfoDao.selectAll();
     }
 
+    public void deleteById(Long id){
+        adminInfoDao.deleteByPrimaryKey(id);
+    }
+
 }

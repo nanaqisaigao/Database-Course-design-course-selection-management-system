@@ -161,7 +161,7 @@
                                             <td>{{obj.phone}}</td>
                                             <td>
                                                 <button class="btn-primary btn-sm" @click="init(obj)">编辑</button>
-                                                <button class="btn-danger btn-sm">删除</button>
+                                                <button class="btn-danger btn-sm" @click="del(obj.id)">删除</button>
                                             </td>
 
                                         </tr>
@@ -323,6 +323,28 @@
                 $('#mod').modal("show");//出现问题，和增加用的一个模态框，但一个是新增，一个是更改
                 //解决：模态框id属性隐藏了，但是add情空了，init没有，所以init有id，可以根据id来判断模态框用的是add还是init
 
+            },
+
+            del(id) {
+                let _this = this;
+                this.$confirm('确认删除？', '系统提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    cancelButtonClass: 'btn-custom-cancel',
+                    type: 'warning'
+                }).then(function(){
+                    // 删除
+                    axios.delete("/adminInfo/" + id).then(res => {
+                        if (res.data.code === '0') {
+                            msg("success", "删除成功");
+                            _this.loadTable();
+                        } else {
+                            msg("error", res.data.msg);
+                        }
+                    })
+                }).catch(function() {
+                    console.log("取消成功！");
+                });
             },
 
             logout() {
