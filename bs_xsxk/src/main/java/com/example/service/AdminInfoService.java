@@ -68,4 +68,11 @@ public class AdminInfoService {
     }
 
 
+    public PageInfo<AdminInfo> findPageName(Integer pageNum, Integer pageSize, String name) {
+        //1.开启分页
+        PageHelper.startPage(pageNum,pageSize);
+        //2.之后的查询会自动根据pageNum和pageSize来查询对应的数据
+        List<AdminInfo> infos = adminInfoDao.findByNamePage(name);
+        return PageInfo.of(infos);
+    }
 }

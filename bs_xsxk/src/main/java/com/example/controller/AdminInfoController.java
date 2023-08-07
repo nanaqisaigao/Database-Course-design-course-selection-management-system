@@ -40,10 +40,16 @@ public class AdminInfoController {
         return Result.success();
     }
 
-    @GetMapping("/page")//@RequestParam获取传进来的值
-    public Result findPage(@RequestParam Integer pageNum,@RequestParam Integer pageSize){
+    @GetMapping("/page")
+    public Result findPage(@RequestParam Integer pageNum, @RequestParam Integer pageSize) {
+        PageInfo<AdminInfo> info = admininfoService.findPage(pageNum, pageSize);
+        return Result.success(info);
+    }
+
+    @GetMapping("/page/{name}")//@RequestParam获取传进来的值
+    public Result findPage(@RequestParam Integer pageNum,@RequestParam Integer pageSize,@PathVariable String name){
         //PageInfo里面包含list和很多页面信息
-        PageInfo<AdminInfo> info = admininfoService.findPage(pageNum, pageSize);//返回的是PageInfo.of(列表);
+        PageInfo<AdminInfo> info = admininfoService.findPageName(pageNum, pageSize,name);//返回的是PageInfo.of(列表);
         //MyBatis分页插件
         return Result.success(info);
     }
