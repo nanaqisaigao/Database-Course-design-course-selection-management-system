@@ -152,15 +152,15 @@
                                             <th>操作</th>
                                         </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody v-for="obj in tableData">
                                         <tr>
 
-                                            <td>111</td>
-                                            <td>222</td>
-                                            <td>333</td>
-                                            <td>444</td>
+                                            <td>{{obj.name}}</td>
+                                            <td>{{obj.sex}}</td>
+                                            <td>{{obj.age}}</td>
+                                            <td>{{obj.phone}}</td>
                                             <td>
-                                                <button class="btn-primary btn-sm">编辑</button>
+                                                <button class="btn-primary btn-sm" @click="init(obj)">编辑</button>
                                                 <button class="btn-danger btn-sm">删除</button>
                                             </td>
 
@@ -258,8 +258,9 @@
     new Vue({
         el: '#wrapper',
         data: {
-            user: {},
+            user: {},//一个对象，很多字段
             entity: {},
+            tableData:[],//有很多对象
         },
         created: function () {
             const menuHeight = document.getElementById("main-menu").getElementsByTagName('li').length * 53;
@@ -267,24 +268,42 @@
             document.getElementById("nav-id").style.height = (menuHeight > bodyHeight ? menuHeight : bodyHeight) + 'px';
             this.user = JSON.parse(localStorage.getItem('user'));
 
+            this.loadTable();
+
 
         },
         methods: {
-            add() {
+
+
+            add() {//点击增加跳出模板框
                 this.entity = {};
                 $('#mod').modal("show");//调用前端模板框
 
             },
-            submit(){
+            submit(){//提交模板框输入数据到数据库
                 axios.post("/adminInfo",this.entity).then(res=>{
-                    if(res.data.code === "0"){
+                    if(res.data.code === '0'){
                         $('#mod').modal("hide");//隐藏前端模板框
                         msg("success","插入成功");
+                        this.loadTable();
                     }else{
                         msg("error",res.data.msg);
                     }
                 })
             },
+
+            loadTable(){//点击管理员信息时，查询所有人物信息并显示
+                axios.get("/adminInfo").then(res => {
+                    if(res.data.code === '0'){
+                        this.tableData = res.data.data;
+                    }else{
+                        msg("error",res.data.msg);
+                    }
+                })
+            },
+
+
+
             logout() {
             }
         }

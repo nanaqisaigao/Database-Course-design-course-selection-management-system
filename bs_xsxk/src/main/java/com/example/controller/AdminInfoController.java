@@ -6,6 +6,7 @@ import com.example.service.AdmininfoService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @RestController
 @RequestMapping("/adminInfo")
@@ -23,6 +24,12 @@ public class AdminInfoController {
     public Result add(@RequestBody AdminInfo adminInfo){
         admininfoService.add(adminInfo);
         return Result.success();
+    }
+
+    @GetMapping
+    public Result findAll(){
+        List<AdminInfo> list = admininfoService.findAll();
+        return Result.success(list);
     }
 
 }

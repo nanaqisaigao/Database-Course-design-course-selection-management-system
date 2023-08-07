@@ -9,6 +9,7 @@ import com.example.exception.CustomException;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class AdmininfoService {
@@ -46,6 +47,10 @@ public class AdmininfoService {
             adminInfo.setPassword("123456");
         }
         adminInfoDao.insertSelective(adminInfo);
+    }
+
+    public List<AdminInfo> findAll(){
+        return adminInfoDao.selectAll();
     }
 
 }
