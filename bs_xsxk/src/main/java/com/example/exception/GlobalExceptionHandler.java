@@ -11,13 +11,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 
 @ControllerAdvice(basePackages="com.example.controller")
-public class GlobalExceptionHandler {
+//@ControllerAdvice来声明一些全局性的东西，最常见的是结合@ExceptionHandler注解用于全局异常的处理
+public class GlobalExceptionHandler {//处理捕获的异常
 
     private static final Log log = LogFactory.get();
 
 
     //统一异常处理@ExceptionHandler,主要用于Exception
     @ExceptionHandler(Exception.class)
+//    Spring的@ExceptionHandler可以用来统一处理方法抛出的异常
     @ResponseBody//返回json串
     public Result error(HttpServletRequest request, Exception e){
         log.error("异常信息：",e);

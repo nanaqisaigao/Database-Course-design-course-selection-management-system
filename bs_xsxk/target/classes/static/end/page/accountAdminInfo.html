@@ -233,7 +233,7 @@
 
             update(){//用put方法把整个更改的表格中的信息返回给控制器
                 axios.put("/adminInfo",this.entity).then(res=>{
-                    if(res.data.code === 0){
+                    if(res.data.code === "0"){
                         msg("success","保存成功");
                         this.loadData();
                     }else{

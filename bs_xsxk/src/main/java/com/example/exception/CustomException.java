@@ -2,7 +2,7 @@ package com.example.exception;
 
 import com.example.common.ResultCode;
 
-public class CustomException extends RuntimeException {
+public class CustomException extends RuntimeException {     //捕获异常
     private String code;
     private String msg;
 
