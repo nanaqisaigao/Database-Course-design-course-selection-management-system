@@ -6,6 +6,8 @@ import com.example.dao.AdminInfoDao;
 import com.example.entity.Account;
 import com.example.entity.AdminInfo;
 import com.example.exception.CustomException;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -56,5 +58,14 @@ public class AdminInfoService {
     public void deleteById(Long id){
         adminInfoDao.deleteByPrimaryKey(id);
     }
+
+    public PageInfo<AdminInfo> findPage(Integer pageNum, Integer pageSize) {
+        //1.开启分页
+        PageHelper.startPage(pageNum,pageSize);
+        //2.之后的查询会自动根据pageNum和pageSize来查询对应的数据
+        List<AdminInfo> infos = adminInfoDao.selectAll();
+        return PageInfo.of(infos);
+    }
+
 
 }

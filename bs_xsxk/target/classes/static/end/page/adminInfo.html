@@ -163,10 +163,32 @@
                                                 <button class="btn-primary btn-sm" @click="init(obj)">编辑</button>
                                                 <button class="btn-danger btn-sm" @click="del(obj.id)">删除</button>
                                             </td>
-
                                         </tr>
                                         </tbody>
                                     </table>
+
+                                    <nav aria-label="Page navigation example">
+                                        <ul class="pagination">
+<!--                                                                              preActive是false执行         -->
+                                            <li class="page-item" v-bind:class="{ disabled: preActive }">
+                                                <a class="page-link" href="javascript:void(0)"
+                                                   v-on:click="loadTable(pageInfo.hasPreviousPage? (pageInfo.pageNum - 1) : pageInfo.pageNum)">上一页</a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="javascript:void(0)" v-if="pageInfo.pageNum > 1" v-on:click="loadTable(pageInfo.pageNum - 1)">{{pageInfo.pageNum - 1}}</a>
+                                            </li>
+                                            <li class="page-item disabled">
+                                                <a class="page-link" aria-disabled="true" href="javascript:void(0)">{{pageInfo.pageNum}}</a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="javascript:void(0)" v-if="pageInfo.hasNextPage" v-on:click="loadTable(pageInfo.pageNum + 1)">{{pageInfo.pageNum + 1}}</a>
+                                            </li>
+                                            <li class="page-item" v-bind:class="{ disabled: nextActive }">
+                                                <a class="page-link" href="javascript:void(0)" v-on:click="loadTable(pageInfo.hasNextPage? (pageInfo.pageNum + 1) : pageInfo.pageNum)">下一页</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+
                                 </div>
                             </div>
                         </div>
@@ -261,6 +283,10 @@
             user: {},//一个对象，很多字段
             entity: {},
             tableData:[],//有很多对象
+
+            pageInfo:{},
+            preActive:false,
+            nextActive:false,
         },
         created: function () {
             const menuHeight = document.getElementById("main-menu").getElementsByTagName('li').length * 53;
@@ -268,7 +294,8 @@
             document.getElementById("nav-id").style.height = (menuHeight > bodyHeight ? menuHeight : bodyHeight) + 'px';
             this.user = JSON.parse(localStorage.getItem('user'));
 
-            this.loadTable();
+             this.loadTable(1);
+
 
 
         },
@@ -305,17 +332,21 @@
                 }
             },
 
-            loadTable(){//点击管理员信息时，查询所有人物信息并显示
-                axios.get("/adminInfo").then(res => {
+            loadTable(pageNum){//查询数据库所有人物信息并显示出来
+                axios.get("/adminInfo/page?pageNum=" + pageNum + "&pageSize=5").then(res => {
                     if(res.data.code === '0'){
-                        this.tableData = res.data.data;
+                        this.tableData = res.data.data.list;
+                        this.pageInfo = res.data.data;
+                        this.preActive =!(res.pageInfo.hasPreviousPage);
+                        this.nextActive =!(res.pageInfo.hasNextPage);
                     }else{
                         msg("error",res.data.msg);
                     }
                 })
             },
 
-            init(obj){
+
+            init(obj){//点击编辑按钮后弹出模态框
                 //JSON.stringify() 方法将一个 JavaScript 对象或值转换为 JSON 字符串，
                 // 如果指定了一个 replacer 函数，则可以选择性地替换值，或者指定的 replacer 是数组，则可选择性地仅包含数组指定的属性。
                 // JSON.parse() 方法用来解析 JSON 字符串，构造由字符串描述的 JavaScript 值或对象。
@@ -325,7 +356,7 @@
 
             },
 
-            del(id) {
+            del(id) {//点击删除删除数据
                 let _this = this;//为了把弹出框的this和删除后的loadTable的this分开
                 this.$confirm('确认删除？', '系统提示', {
                     confirmButtonText: '确定',
