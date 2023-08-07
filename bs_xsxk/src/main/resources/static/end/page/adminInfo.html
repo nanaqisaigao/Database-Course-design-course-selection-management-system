@@ -274,13 +274,25 @@
         },
         methods: {
 
-
             add() {//点击增加跳出模板框
                 this.entity = {};
                 $('#mod').modal("show");//调用前端模板框
 
             },
+
             submit(){//提交模板框输入数据到数据库
+                //模态框id属性隐藏了，但是add情空了，init没有，所以init有id，可以根据id来判断模态框用的是add还是init
+                if(this.entity.id){//更新操作
+                    axios.put("/adminInfo",this.entity).then(res => {//在个人主页模块已经实现
+                        if(res.data.code === '0'){
+                            $('#mod').modal("hide");//关掉模态框
+                            msg("success","编辑成功");
+                            this.loadTable();
+                        }else{
+                            msg("error",res.data.msg);
+                        }
+                    })
+                } else{//新增操作
                 axios.post("/adminInfo",this.entity).then(res=>{
                     if(res.data.code === '0'){
                         $('#mod').modal("hide");//隐藏前端模板框
@@ -290,6 +302,7 @@
                         msg("error",res.data.msg);
                     }
                 })
+                }
             },
 
             loadTable(){//点击管理员信息时，查询所有人物信息并显示
@@ -302,10 +315,20 @@
                 })
             },
 
+            init(obj){
+                //JSON.stringify() 方法将一个 JavaScript 对象或值转换为 JSON 字符串，
+                // 如果指定了一个 replacer 函数，则可以选择性地替换值，或者指定的 replacer 是数组，则可选择性地仅包含数组指定的属性。
+                // JSON.parse() 方法用来解析 JSON 字符串，构造由字符串描述的 JavaScript 值或对象。
+                this.entity = JSON.parse(JSON.stringify(obj));
+                $('#mod').modal("show");//出现问题，和增加用的一个模态框，但一个是新增，一个是更改
+                //解决：模态框id属性隐藏了，但是add情空了，init没有，所以init有id，可以根据id来判断模态框用的是add还是init
 
+            },
 
             logout() {
-            }
+            },
+
+
         }
     })
 </script>
