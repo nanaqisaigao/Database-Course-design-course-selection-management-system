@@ -194,7 +194,14 @@
         el: '#wrapper',
         data: {
             user: {},
-            entity: {}
+            entity: {},
+            tableData: [],//有很多对象
+
+            pageInfo: {},
+            preActive: false,
+            nextActive: false,
+
+            search: ""
         },
         created: function () {
             const menuHeight = document.getElementById("main-menu").getElementsByTagName('li').length * 53;
