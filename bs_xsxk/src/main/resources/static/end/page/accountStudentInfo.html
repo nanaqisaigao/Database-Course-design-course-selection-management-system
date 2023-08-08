@@ -119,6 +119,41 @@
                                     <form class="form-horizontal">
                                         <input type="hidden" v-model="entity.id">
 
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">姓名</label>
+                                            <div class="col-sm-7">
+                                                <input type="text" class="form-control" v-model="entity.name"
+                                                       placeholder="请输入姓名">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">性别</label>
+                                            <div class="col-sm-7">
+                                                <label class="radio-inline">
+                                                    <input type="radio" value="男" v-model="entity.sex">男
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" value="女" v-model="entity.sex">女
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">年龄</label>
+                                            <div class="col-sm-7">
+                                                <input type="text" class="form-control" v-model="entity.age"
+                                                       placeholder="请输入年龄">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">电话</label>
+                                            <div class="col-sm-7">
+                                                <input type="text" class="form-control" v-model="entity.zhicheng"
+                                                       placeholder="请输入电话">
+                                            </div>
+                                        </div>
                                     </form>
                                     <div style="text-align: center">
                                     </div>

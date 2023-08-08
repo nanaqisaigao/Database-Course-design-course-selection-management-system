@@ -12,17 +12,18 @@
         [v-cloak] {
             display: none;
         }
+
         .table th, .table td {
             text-align: center !important;
             vertical-align: middle !important;
         }
     </style>
 </head>
-<body style="background-color: #E2E2E2;">
+<body style="background:url('../img/salad-2756467_1920.jpg') no-repeat; background-size: cover;">
 <div id="app" class="container" v-cloak>
     <div class="row text-center " style="padding-top:100px;">
-        <div class="col-md-12">
-           <h2>欢迎注册</h2>
+        <div class="col-md-12" style="font-size: large; color: whitesmoke">
+            <h2>欢迎注册</h2>
         </div>
     </div>
     <div class="row ">
@@ -31,7 +32,33 @@
 
             <div class="panel-body">
                 <form role="form">
+                    <hr/>
+                    <br/>
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="fa fa-tag"></i></span>
+                        <input type="text" class="form-control" v-model="user.name" placeholder="用户名"/>
+                    </div>
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                        <input type="password" class="form-control" v-model="user.password" placeholder=" 密码"/>
+                    </div>
+                    <h5>请选择角色</h5>
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                        <select class="form-control" v-model="user.level">
+                            <option value="" selected="">请选择</option>
+                            <option value="2">教师</option>
+                            <option value="3">学生</option>
+                        </select>
+                    </div>
 
+                    <div style="text-align: center">
+                        <a href="javascript:void(0)" class="btn btn-block btn-primary" @click="register()">注册</a>
+                    </div>
+                    <hr/>
+                    <div style="text-align: center; color:whitesmoke; font-size: larger">
+                        <span>已注册 ?</span> <a href="login.html">点击这里 </a>
+                    </div>
                 </form>
             </div>
 
@@ -51,6 +78,19 @@
         created: function () {
         },
         methods: {
+            register() {
+                axios.post("/register", this.user).then(res => {
+                    if (res.data.code === '0') {
+                        window.location = "/end/page/login.html";
+
+                    } else {
+                        alert(res.data.msg);
+                    }
+
+
+                })
+            },
+
 
         }
     });

@@ -19,7 +19,7 @@
         }
     </style>
 </head>
-<body style="background:url('../img/R-C.jpg') no-repeat; background-size: cover;">
+<body style="background:url('../img/barbeque-1981640_1920.jpg') no-repeat; background-size: cover;">
 <div id="app" class="container" v-cloak>
     <div class="row text-center " style="padding-top:120px;">
         <div class="col-md-12">
@@ -88,6 +88,8 @@
                     if (res.data.code === '0') {
                         let user = res.data.data;
                         localStorage.setItem('user', JSON.stringify(user));
+                        //localStorage.setItem(key,value)：将value存储到key字段
+                        //JSON.stringify 方法将某个对象转换成 JSON 字符串形式
                         if (user && user.level && 1 === user.level) {
                             window.location = "/end/page/accountAdminInfo.html";
                         }
