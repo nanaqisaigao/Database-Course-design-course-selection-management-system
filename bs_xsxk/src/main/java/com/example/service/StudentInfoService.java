@@ -6,9 +6,12 @@ import com.example.dao.StudentInfoDao;
 import com.example.entity.Account;
 import com.example.entity.StudentInfo;
 import com.example.exception.CustomException;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class StudentInfoService {
@@ -36,6 +39,10 @@ public class StudentInfoService {
         return studentInfo;
     }
 
+    public List<StudentInfo> findAll(){
+        return studentInfoDao.selectAll();
+    }
+
     public StudentInfo findById(Long id) {
         return studentInfoDao.selectByPrimaryKey(id);
     }
@@ -43,5 +50,32 @@ public class StudentInfoService {
     public void update(StudentInfo studentInfo) {
         studentInfoDao.updateByPrimaryKeySelective(studentInfo);
     }
+
+    public void add(StudentInfo studentInfo){
+        StudentInfo Info = studentInfoDao.findByName(studentInfo.getName());
+        if(ObjectUtil.isNotEmpty(Info)){
+            throw new CustomException(ResultCode.USER_EXIST_ERROR);
+        }
+        if(ObjectUtil.isEmpty(studentInfo.getPassword())){
+            studentInfo.setPassword("123456");
+        }
+        studentInfo.setLevel(3);
+        studentInfoDao.insertSelective(studentInfo);
+    }
+
+    public void deleteById(Long id){
+        studentInfoDao.deleteByPrimaryKey(id);
+    }
+
+public PageInfo<StudentInfo> findPage(Integer pageNum,Integer pageSize){
+    PageHelper.startPage(pageNum,pageSize);
+    List<StudentInfo> list = studentInfoDao.selectAll();
+    return PageInfo.of(list);
+}
+public PageInfo<StudentInfo> findPageSearch(Integer pageNum,Integer pageSize,String search){
+        PageHelper.startPage(pageNum,pageSize,search);
+        List<StudentInfo> list = studentInfoDao.findByLikeName(search);
+        return PageInfo.of(list);
+}
 
 }
