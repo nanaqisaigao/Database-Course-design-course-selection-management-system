@@ -216,7 +216,7 @@
             },
             update() {
                 axios.put("/teacherInfo",this.entity).then(res=>{
-                    if(res.data.code === "0"){
+                    if(res.data.code === '0'){
                         msg("success","保存成功");
                         this.loadData();
                     }else{
@@ -225,7 +225,7 @@
                 })
             },
             logout() {
-
+             logout();
             }
         }
     })

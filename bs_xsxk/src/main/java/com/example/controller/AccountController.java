@@ -9,6 +9,7 @@ import com.example.entity.TeacherInfo;
 import com.example.service.AdminInfoService;
 import com.example.service.StudentInfoService;
 import com.example.service.TeacherInfoService;
+import org.apache.ibatis.jdbc.Null;
 import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,6 +31,7 @@ public class AccountController {
 
     /**
      * 解释：登录模块，用于所有类型用户的登录，把登陆的用户信息返回到前端，并存储获取用户登录信息
+     *
      * @param user
      * @param request
      * @return Result
@@ -63,6 +65,7 @@ public class AccountController {
 
     /**
      * 解释：用于登陆后判断登录用户类型，并获取登录的用户信息
+     *
      * @param request
      * @return
      */
@@ -97,6 +100,7 @@ public class AccountController {
 
     /**
      * 解释：用来注册除了管理员以外类型的用户
+     *
      * @param user
      * @param request
      * @return Result
@@ -118,12 +122,16 @@ public class AccountController {
 
         if (3 == level) {
             //学生注册
-           StudentInfo studentInfo = new StudentInfo();
+            StudentInfo studentInfo = new StudentInfo();
             BeanUtils.copyProperties(user, studentInfo);//BeanUtils.copyProperties("转换前的类", "转换后的类");
             studentInfoService.resigter(studentInfo);
         }
+        return Result.success();
+    }
 
-
+    @GetMapping("/logout")
+    public Result logout(HttpServletRequest request) {
+        request.getSession().setAttribute("user", null);
         return Result.success();
     }
 
