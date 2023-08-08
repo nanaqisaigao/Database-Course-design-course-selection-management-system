@@ -2,6 +2,7 @@ package com.example.controller;
 
 import com.example.common.Result;
 import com.example.entity.AdminInfo;
+import com.example.entity.TeacherInfo;
 import com.example.service.AdminInfoService;
 import com.example.service.TeacherInfoService;
 import com.github.pagehelper.PageInfo;
@@ -15,6 +16,12 @@ import java.util.List;
 public class TeacherInfoController {
     @Resource
     private TeacherInfoService teacherInfoService;
+
+    @PutMapping
+    public Result update(@RequestBody TeacherInfo teacherInfo){
+        teacherInfoService.update(teacherInfo);
+        return Result.success();
+    }
 
 
 }

@@ -43,7 +43,7 @@ public class AccountController {
         if (3 == level) {//学生登陆,去学生信息表查询
 
         }
-        //在session里面把用户信息存一份
+        //session用来存储获取用户登录信息，在session里面把用户信息存一份,用于登陆后提取登录用户
         request.getSession().setAttribute("user", loginUser);
 
         return Result.success(loginUser);
@@ -52,17 +52,23 @@ public class AccountController {
 
     @GetMapping("/getUser")
     public Result getUser(HttpServletRequest request) {
+
         //先从session里面获取当前存的用户登录的信息
         Account user = (Account) request.getSession().getAttribute("user");
+
         //判断当前登录的用户是什么角色
         Integer level = user.getLevel();
         if (1 == level) {//管理员登陆,去管理员信息表查询，调用管理员Service的业务代码
             //获取管理员信息
             AdminInfo adminInfo = admininfoService.findById(user.getId());//通过登录模块保存的主键，在AdminInfo服务和Dao获取表中SQL管理员信息
+            adminInfo.setPassword("0");//由于不需要显示密码，把密码置空，防止被从f12看到
             return Result.success(adminInfo);
         }
         if (2 == level) {//教师登陆,去教师信息表查询
             //从教师表里面获取教师信息
+            TeacherInfo teacherInfo = teacherInfoService.findById(user.getId());
+            teacherInfo.setPassword("0");//由于不需要显示密码，把密码置空，防止被从f12看到
+            return Result.success(teacherInfo);
         }
         if (3 == level) {//学生登陆,去学生信息表查询
             //从学生表里获取学生信息
@@ -73,8 +79,7 @@ public class AccountController {
 
     @PostMapping("/register")
     public Result register(@RequestBody Account user, HttpServletRequest request) {
-        if (ObjectUtil.isEmpty(user.getName()) || ObjectUtil.isEmpty(user.getPassword()) ||
-                ObjectUtil.isEmpty(user.getLevel())) {
+        if (ObjectUtil.isEmpty(user.getName()) || ObjectUtil.isEmpty(user.getPassword()) || ObjectUtil.isEmpty(user.getLevel())) {
             return Result.error("-1", "输入的信息不完善");
         }
         Integer level = user.getLevel();
