@@ -92,8 +92,16 @@ public class StudentInfoService {
     public PageInfo<StudentInfo> findPageSearch(Integer pageNum, Integer pageSize, String search) {
         PageHelper.startPage(pageNum, pageSize, search);
         List<StudentInfo> list = studentInfoDao.findByLikeName(search);
-
+        for (StudentInfo studentInfo : list) {
+            if (ObjectUtil.isNotEmpty(studentInfo.getXueyuanId())) {
+                //根据studentInfo里面的xueyuanId，查询到学员信息，然后通过学院的Dao方法，查到名称赋值给 不在学生数据库中的xueyuanName
+                XueyuanInfo xueyuanInfo = xueyuanInfoDao.selectByPrimaryKey(studentInfo.getXueyuanId());
+                studentInfo.setXueyuanName(xueyuanInfo.getName());
+            }
+        }
         return PageInfo.of(list);
     }
 
+
 }
+

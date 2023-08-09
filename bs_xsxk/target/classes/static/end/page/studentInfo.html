@@ -167,7 +167,7 @@
                                             <th>学号</th>
                                             <th>学分</th>
                                             <th>所属学院</th>
-                                            <th>Id学院</th>
+                                            <th>学院Id</th>
                                             <th>操作</th>
                                         </tr>
                                         </thead>
@@ -316,8 +316,8 @@
             document.getElementById("nav-id").style.height = (menuHeight > bodyHeight ? menuHeight : bodyHeight) + 'px';
             this.user = JSON.parse(localStorage.getItem('user'));
 
-            this.loadTablePage(1);
             this.loadXueyuan();
+            this.loadTablePage(1);
         },
         methods: {
 
