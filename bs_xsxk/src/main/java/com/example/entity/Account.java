@@ -4,8 +4,10 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+//定义一个基类，别的实体用它         用于统一接收
 public class Account {
-    //定义一个基类，别的实体用它         用于统一接收
+
 //    @GeneratedValue注解存在的意义主要就是为一个实体生成一个唯一标识的主键(JPA要求每一个实体Entity,必须有且只有一个主键)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
