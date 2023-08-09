@@ -151,7 +151,8 @@
                                             <td>{{ obj.age }}</td>
                                             <td>{{ obj.code }}</td>
                                             <td>{{ obj.score }}</td>
-                                            <td>{{ obj.zhuanyeId }}</td>
+                                            <td>{{ obj.xueyuanName}}</td>
+                                            <td>{{obj.xueyuanId}}</td>
                                             <td>
                                                 <button class="btn btn-sm btn-primary" @click="init(obj)">编辑</button>
                                                 <button class="btn btn-sm btn-danger" @click="del(obj.id)">删除</button>
@@ -166,6 +167,7 @@
                                             <th>学号</th>
                                             <th>学分</th>
                                             <th>所属学院</th>
+                                            <th>Id学院</th>
                                             <th>操作</th>
                                         </tr>
                                         </thead>
@@ -253,11 +255,11 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">专业Id</label>
+                            <label class="col-sm-3 control-label">所属学院</label>
                             <div class="col-sm-7 form-inline">
-                                <input type="text" class="form-control" v-model="entity.zhuanyeId"
-                                       placeholder="请输入专业Id"
-                                       style="width: 100%">
+                                <select class="form-control" v-model="entity.xueyuanId" style="width: 100%">
+                                    <option v-for="item in xueyuanObjs" :value="item.id">{{item.name}}</option>
+                                </select>
                             </div>
                         </div>
                     </form>
@@ -267,7 +269,7 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="entity={sex:'男'}">
                         关闭
                     </button>
-                    <button type="button" class="btn btn-primary" v-on:click="update()">保存</button>
+                    <button type="button" class="btn btn-primary" v-on:click="submit()">保存</button>
                 </div>
             </div>
         </div>
@@ -298,8 +300,9 @@
         el: '#wrapper',
         data: {
             user: {},
-            entity: {},
-            tableData: [],//有很多对象
+            entity: {},//只有一个对象，用于传入前端输入的增加或更新数据的值给控制器
+            tableData: [],//有很多对象，用于接收查询所有
+            xueyuanObjs: [],//用于接收学院信息，与学院联动
 
             pageInfo: {},
             preActive: false,
@@ -314,7 +317,7 @@
             this.user = JSON.parse(localStorage.getItem('user'));
 
             this.loadTablePage(1);
-
+            this.loadXueyuan();
         },
         methods: {
 
@@ -406,6 +409,17 @@
                     console.log("取消成功！");
                 });
             },
+
+            loadXueyuan() {//学生每次加载页面都加载学院信息
+                axios.get("/xueyuanInfo").then(res => {
+                    if (res.data.code === '0') {
+                        this.xueyuanObjs = res.data.data;
+                    } else {
+                        msg("error,res.data.msg");
+                    }
+                })
+            },
+
             logout() {
                 logout()
             }

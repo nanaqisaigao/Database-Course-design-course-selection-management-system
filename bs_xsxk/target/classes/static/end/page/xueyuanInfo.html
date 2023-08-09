@@ -122,18 +122,28 @@
                             <div class="panel-body">
                                 <div class="table-responsive">
                                     <div class="nx-table-header">
-                                        <button class="btn btn-sm btn-primary">新增</button>
-                                        <input type="text" placeholder="请输入搜索内容">
+                                        <button class="btn btn-sm btn-primary" @click="add()">新增</button>
+                                        <input type="text" placeholder="请输入学院名称" v-model="search" @keyup.enter="loadTable()">
                                         <i class="glyphicon glyphicon-search"></i>
                                     </div>
                                     <table class="table table-striped table-bordered table-hover">
                                         <thead>
                                         <tr>
-
+                                            <th>学院名称</th>
+                                            <th>学院介绍</th>
+                                            <th>学分限制</th>
+                                            <th>操作</th>
                                         </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody v-for="obj in tableData">
                                         <tr>
+                                            <td>{{obj.name}}</td>
+                                            <td>{{obj.description}}</td>
+                                            <td>{{obj.score}}</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary" @click="init(obj)">编辑</button>
+                                                <button class="btn btn-sm btn-danger" @click="del(obj.id)">删除</button>
+                                            </td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -159,12 +169,30 @@
                 <div class="modal-body">
                     <form class="form-horizontal">
                         <input type="hidden" id="id" name="id" v-model="entity.id">
-
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">学院名称</label>
+                            <div class="col-sm-7 form-inline">
+                                <input type="text" class="form-control" v-model="entity.name" placeholder="请输入学院名称" style="width: 100%">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">学院介绍</label>
+                            <div class="col-sm-7 form-inline">
+                                <textarea class="form-control" v-model="entity.description" placeholder="请输入学院介绍" style="width: 100%; resize: vertical"></textarea>
+<!--                                长文本，可以拉动框的大小                                                                                           只能垂直拉         -->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">学分限制</label>
+                            <div class="col-sm-7 form-inline">
+                                <input type="text" class="form-control" v-model="entity.score" placeholder="请输入学分限制" style="width: 100%">
+                            </div>
+                        </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="entity={}">关闭</button>
-                    <button type="button" class="btn btn-primary">保存</button>
+                    <button type="button" class="btn btn-primary" @click="update()">保存</button>
                 </div>
             </div>
         </div>
@@ -195,7 +223,10 @@
         el: '#wrapper',
         data: {
             user: {},
-            entity: {}
+            entity: {},
+
+            tableData: [],
+            search: null
         },
         created: function () {
             const menuHeight = document.getElementById("main-menu").getElementsByTagName('li').length * 53;
@@ -203,14 +234,95 @@
             document.getElementById("nav-id").style.height = (menuHeight > bodyHeight ? menuHeight : bodyHeight) + 'px';
             this.user = JSON.parse(localStorage.getItem('user'));
 
+            this.loadTable();
 
 
 
         },
         methods: {
 
-            logout() {
+            loadTable() {
+                let url = "/xueyuanInfo";
+                // 检测一下有没有输入（跟search字段绑定的）
+                if (this.search) {
+                    // 根据这个search的内容做模糊查询
+                    url = url + "/" + this.search;
+                }
+                axios.get(url).then(res => {
+                    if (res.data.code === '0') {
+                        this.tableData = res.data.data;
+                    } else {
+                        msg("error", res.data.msg);
+                    }
+                })
+            },
 
+            add() {//点击新增
+                this.entity = {};
+                $("#mod").modal("show");
+            },
+
+            init(obj) {//点击编辑
+                this.entity = JSON.parse(JSON.stringify(obj));
+                $("#mod").modal("show");
+            },
+
+            update() {//新增和编辑调用模块的提交后更新数据库
+                if (!this.entity.name) {
+                    msg("error", "学院名称不能为空");
+                    return;
+                }
+                if (!this.entity.score) {
+                    msg("error", "学分限制不能为空");
+                    return;
+                }
+                if (this.entity.id) {
+                    // 编辑更新
+                    axios.put("/xueyuanInfo", this.entity).then(res => {
+                        if (res.data.code === '0') {
+                            msg("success", "更新成功");
+                            $("#mod").modal("hide");
+                            this.loadTable();
+                        }
+                    })
+                } else {
+                    // 新增
+                    axios.post("/xueyuanInfo", this.entity).then(res => {
+                        if (res.data.code === '0') {
+                            msg("success", "操作成功");
+                            $("#mod").modal("hide");
+                            this.loadTable();
+                        } else {
+                            msg("error", res.data.msg);
+                        }
+                    })
+                }
+            },
+
+            del(id) {
+                let that = this;
+                this.$confirm('确认删除？', '系统提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    cancelButtonClass: 'btn-custom-cancel',
+                    type: 'warning'
+                }).then(function(){
+                    // 删除
+                    axios.delete("/xueyuanInfo/" + id).then(res => {
+                        if (res.data.code === '0') {
+                            msg("success", "删除成功");
+                            that.loadTable();
+                        } else {
+                            msg("error", res.data.msg);
+                        }
+                    })
+                }).catch(function() {
+                    console.log("取消成功！");
+                });
+            },
+
+            logout() {
+logout();
             }
         }
     })
