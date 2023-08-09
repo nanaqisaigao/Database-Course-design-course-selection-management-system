@@ -18,10 +18,20 @@ public interface StudentInfoDao extends Mapper<StudentInfo> {
     @Select("select * from student_info where name = #{name} and password = #{password}")
     StudentInfo findByNameAndPass(@Param("name") String name, @Param("password") String password);
 
-    @Select("select * from student_info where name like concat('%',#{search},'%')")
-    List<StudentInfo> findByLikeName(@Param("name")String search);
+  /*  @Select("select * from student_info where name like concat('%',#{search},'%')")
+    List<StudentInfo> findByLikeName(@Param("name")String search);*/
+    //增加了信息后的模糊查询
+    @Select("select a.*,b.name AS xueyuanName " +
+            "from student_info AS a " +
+            "LEFT JOIN xueyuan_info AS b " +
+            "ON a.xueyuanId = b.id " +
+            "where a.name like concat('%',#{search},'%')")
+    List<StudentInfo> findByLikeName(@Param("name") String search);
 
-    @Select("SELECT a.*,b.name AS xueyuanName FROM student_info AS a LEFT JOIN xueyuan_info AS b ON a.xueyuanId = b.Id")
+    @Select("SELECT a.*,b.name AS xueyuanName " +
+            "FROM student_info AS a " +
+            "LEFT JOIN xueyuan_info AS b " +
+            "ON a.xueyuanId = b.Id")
     List<StudentInfo> findAllJoinXueyuan();
 }
 
