@@ -72,30 +72,27 @@ public class StudentInfoService {
 
     public PageInfo<StudentInfo> findPage(Integer pageNum, Integer pageSize) {
         PageHelper.startPage(pageNum, pageSize);
-        List<StudentInfo> list = studentInfoDao.selectAll();
-        //根据学生数据库的学院id 在 学院中找到id对应的学院名称
-        //方式一：使用java逻辑代码
-        for (StudentInfo studentInfo : list) {
+//        List<StudentInfo> list = studentInfoDao.selectAll();
+
+        //方式一：使用java逻辑代码   根据学生数据库的学院id 在 学院中找到id对应的学院名称
+        /*for (StudentInfo studentInfo : list) {
             if (ObjectUtil.isNotEmpty(studentInfo.getXueyuanId())) {
                 //根据studentInfo里面的xueyuanId，查询到学员信息，然后通过学院的Dao方法，查到名称赋值给 不在学生数据库中的xueyuanName
                 XueyuanInfo xueyuanInfo = xueyuanInfoDao.selectByPrimaryKey(studentInfo.getXueyuanId());
                 studentInfo.setXueyuanName(xueyuanInfo.getName());
             }
-        }
+        }**/
+
+        //方式二，使用sql关联语句
+        List<StudentInfo> list = studentInfoDao.findAllJoinXueyuan();
+
         return PageInfo.of(list);
     }
 
     public PageInfo<StudentInfo> findPageSearch(Integer pageNum, Integer pageSize, String search) {
         PageHelper.startPage(pageNum, pageSize, search);
         List<StudentInfo> list = studentInfoDao.findByLikeName(search);
-        //根据学生数据库的学院id 在 学院中找到id对应的学院名称
-        for (StudentInfo studentInfo : list) {
-            if (ObjectUtil.isNotEmpty(studentInfo.getXueyuanId())) {
-                //根据studentInfo里面的xueyuanId，查询到学员信息，然后通过学院的Dao方法，查到名称赋值给 不在学生数据库中的xueyuanName
-                XueyuanInfo xueyuanInfo = xueyuanInfoDao.selectByPrimaryKey(studentInfo.getXueyuanId());
-                studentInfo.setXueyuanName(xueyuanInfo.getName());
-            }
-        }
+
         return PageInfo.of(list);
     }
 
