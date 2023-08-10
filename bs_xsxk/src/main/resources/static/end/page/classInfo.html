@@ -1,12 +1,11 @@
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml"
       xmlns:v-bind="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="pragma" content="no-cache" />
-    <meta http-equiv="content-type" content="no-cache, must-revalidate" />
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta http-equiv="content-type" content="no-cache, must-revalidate"/>
     <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT"/>
     <title>课程信息</title>
 
@@ -19,6 +18,7 @@
         [v-cloak] {
             display: none;
         }
+
         .table th, .table td {
             text-align: center !important;
             vertical-align: middle !important;
@@ -32,7 +32,8 @@
             <nav class="navbar navbar-default top-navbar" role="navigation">
                 <div class="row">
                     <div class="col-md-2">
-                        <a class="navbar-brand" style="width:100%; background-color: darkslateblue"><strong style="font-size: 20px;">学生选课管理系统</strong></a>
+                        <a class="navbar-brand" style="width:100%; background-color: darkslateblue"><strong
+                                style="font-size: 20px;">学生选课管理系统</strong></a>
                     </div>
                     <div class="col-md-10">
 
@@ -43,10 +44,12 @@
                                     <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                                 </a>
                                 <ul class="dropdown-menu dropdown-user">
-                                    <li><a href="javascript:void(0)" @click="personalPage"><i class="fa fa-user fa-fw"></i> 个人信息</a>
+                                    <li><a href="javascript:void(0)" @click="personalPage"><i
+                                            class="fa fa-user fa-fw"></i> 个人信息</a>
                                     </li>
                                     <li class="divider"></li>
-                                    <li><a href="javascript:void(0)" @click="logout"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
+                                    <li><a href="javascript:void(0)" @click="logout"><i
+                                            class="fa fa-sign-out fa-fw"></i> 退出</a>
                                     </li>
                                 </ul>
                             </li>
@@ -65,28 +68,41 @@
                         <li>
                             <a href="#"><i class="fa fa-sitemap"></i> 信息管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse in">
-								<li>
-									<a href="adminInfo.html"><i class="fa fa-table sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">管理员信息</span></a>
-								</li>
-								<li>
-									<a href="teacherInfo.html"><i class="fa fa-table sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">教师信息</span></a>
-								</li>
-								<li>
-									<a href="studentInfo.html"><i class="fa fa-table sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">学生信息</span></a>
-								</li>
-								<li>
-									<a href="xueyuanInfo.html"><i class="fa fa-table sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">学院信息</span></a>
-								</li>
-								<li>
-									<a href="zhuanyeInfo.html"><i class="fa fa-table sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">专业信息</span></a>
-								</li>
-								<li>
-									<a href="classInfo.html" class="active-menu"><i class="fa fa-table sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">课程信息</span></a>
-								</li>
+                                <li v-if="user.level === 1">
+                                    <a href="adminInfo.html"><i class="fa fa-table sub-icon-mg"
+                                                                aria-hidden="true"></i><span
+                                            class="mini-sub-pro">管理员信息</span></a>
+                                </li>
+                                <li v-if="user.level === 1">
+                                    <a href="teacherInfo.html"><i class="fa fa-table sub-icon-mg"
+                                                                  aria-hidden="true"></i><span
+                                            class="mini-sub-pro">教师信息</span></a>
+                                </li>
+                                <li v-if="user.level === 1">
+                                    <a href="studentInfo.html"><i class="fa fa-table sub-icon-mg"
+                                                                  aria-hidden="true"></i><span
+                                            class="mini-sub-pro">学生信息</span></a>
+                                </li>
+                                <li>
+                                    <a href="xueyuanInfo.html"><i class="fa fa-table sub-icon-mg"
+                                                                  aria-hidden="true"></i><span
+                                            class="mini-sub-pro">学院信息</span></a>
+                                </li>
+                                <li>
+                                    <a href="zhuanyeInfo.html"><i class="fa fa-table sub-icon-mg"
+                                                                  aria-hidden="true"></i><span
+                                            class="mini-sub-pro">专业信息</span></a>
+                                </li>
+                                <li>
+                                    <a href="classInfo.html" class="active-menu"><i class="fa fa-table sub-icon-mg"
+                                                                                    aria-hidden="true"></i><span
+                                            class="mini-sub-pro">课程信息</span></a>
+                                </li>
 
-								<li>
-									<a href="xuankeInfo.html"><i class="fa fa-table sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">选课信息</span></a>
-								</li>
+                                <li>
+                                    <a href="xuankeInfo.html"><i class="fa fa-table sub-icon-mg" aria-hidden="true"></i><span
+                                            class="mini-sub-pro">选课信息</span></a>
+                                </li>
 
 
                                 <li>
@@ -152,11 +168,11 @@
                                             <td>{{obj.time}}</td>
                                             <td>{{obj.location}}</td>
                                             <td>{{obj.yixuan}}</td>
-<!--                                            <td v-if="user.level !== 2">-->
-<!--                                                <button v-if="user.level === 3" :disabled="obj.kaiban === obj.yixuan" class="btn btn-sm btn-primary" @click="xuanke(obj)">选课</button>-->
-<!--                                                <button v-if="user.level === 1" class="btn btn-sm btn-primary" @click="init(obj)">编辑</button>-->
-<!--                                                <button v-if="user.level === 1" class="btn btn-sm btn-danger" @click="del(obj.id)">删除</button>-->
-<!--                                            </td>-->
+                                            <!--                                            <td v-if="user.level !== 2">-->
+                                            <!--                                                <button v-if="user.level === 3" :disabled="obj.kaiban === obj.yixuan" class="btn btn-sm btn-primary" @click="xuanke(obj)">选课</button>-->
+                                            <!--                                                <button v-if="user.level === 1" class="btn btn-sm btn-primary" @click="init(obj)">编辑</button>-->
+                                            <!--                                                <button v-if="user.level === 1" class="btn btn-sm btn-danger" @click="del(obj.id)">删除</button>-->
+                                            <!--                                            </td>-->
                                             <td>
                                                 <button class="btn btn-sm btn-primary" @click="init(obj)">编辑</button>
                                                 <button class="btn btn-sm btn-danger" @click="del(obj.id)">删除</button>
@@ -189,44 +205,50 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">课程名称</label>
                             <div class="col-sm-7 form-inline">
-                                <input type="text" class="form-control" v-model="entity.name" placeholder="请输入课程名称" style="width: 100%">
+                                <input type="text" class="form-control" v-model="entity.name"
+                                       placeholder="请输入课程名称" style="width: 100%">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">课程介绍</label>
                             <div class="col-sm-7 form-inline">
-                                <input type="text" class="form-control" v-model="entity.description" placeholder="请输入课程介绍" style="width: 100%">
+                                <input type="text" class="form-control" v-model="entity.description"
+                                       placeholder="请输入课程介绍" style="width: 100%">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">课程学分</label>
                             <div class="col-sm-7 form-inline">
-                                <input type="text" class="form-control" v-model="entity.score" placeholder="请输入课程学分" style="width: 100%">
+                                <input type="text" class="form-control" v-model="entity.score"
+                                       placeholder="请输入课程学分" style="width: 100%">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">开班人数</label>
                             <div class="col-sm-7 form-inline">
-                                <input type="text" class="form-control" v-model="entity.kaiban" placeholder="请输入开班人数" style="width: 100%">
+                                <input type="text" class="form-control" v-model="entity.kaiban"
+                                       placeholder="请输入开班人数" style="width: 100%">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">上课时段</label>
                             <div class="col-sm-7 form-inline">
-                                <input type="text" class="form-control" v-model="entity.time" placeholder="请输入上课时段" style="width: 100%">
+                                <input type="text" class="form-control" v-model="entity.time"
+                                       placeholder="请输入上课时段" style="width: 100%">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">上课地点</label>
                             <div class="col-sm-7 form-inline">
-                                <input type="text" class="form-control" v-model="entity.location" placeholder="请输入上课地点" style="width: 100%">
+                                <input type="text" class="form-control" v-model="entity.location"
+                                       placeholder="请输入上课地点" style="width: 100%">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">所属专业</label>
                             <div class="col-sm-7 form-inline">
                                 <select class="form-control" v-model="entity.zhuanyeId" style="width: 100%">
-                                    <option v-for="item in zhuanyeObjs" :value="item.id" >{{item.name}}</option>
+                                    <option v-for="item in zhuanyeObjs" :value="item.id">{{item.name}}</option>
                                 </select>
                             </div>
                         </div>
@@ -234,14 +256,16 @@
                             <label class="col-sm-3 control-label">授课教师</label>
                             <div class="col-sm-7 form-inline">
                                 <select class="form-control" v-model="entity.teacherId" style="width: 100%">
-                                    <option v-for="item in teachernObjs" :value="item.id" >{{item.name}}</option>
+                                    <option v-for="item in teachernObjs" :value="item.id">{{item.name}}</option>
                                 </select>
                             </div>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="entity={sex:'男'}">关闭</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="entity={sex:'男'}">
+                        关闭
+                    </button>
                     <button type="button" class="btn btn-primary" v-on:click="update()">保存</button>
                 </div>
             </div>
@@ -368,7 +392,7 @@
                     cancelButtonText: '取消',
                     cancelButtonClass: 'btn-custom-cancel',
                     type: 'warning'
-                }).then(function(){
+                }).then(function () {
                     // 删除
                     axios.delete("/classInfo/" + id).then(res => {
                         if (res.data.code === '0') {
@@ -378,7 +402,7 @@
                             msg("error", res.data.msg)
                         }
                     })
-                }).catch(function() {
+                }).catch(function () {
                     console.log("取消成功！");
                 });
             },
