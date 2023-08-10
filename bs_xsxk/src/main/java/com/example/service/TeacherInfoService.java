@@ -76,10 +76,10 @@ public class TeacherInfoService {
         //1.开启分页
         PageHelper.startPage(pageNum,pageSize);
         //2.之后的查询会自动根据pageNum和pageSize来查询对应的数据
-        List<TeacherInfo> infos = teacherInfoDao.selectAll();
+//        List<TeacherInfo> infos = teacherInfoDao.selectAll();
+        List<TeacherInfo> infos =teacherInfoDao.findAllJoinXueyuan();
         return PageInfo.of(infos);
     }
-
 
     public PageInfo<TeacherInfo> findPageSearch(Integer pageNum, Integer pageSize, String search) {
         //1.开启分页

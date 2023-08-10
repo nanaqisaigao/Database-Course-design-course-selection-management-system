@@ -46,8 +46,10 @@ public class StudentInfoService {
         return studentInfoDao.selectAll();
     }
 
-    public StudentInfo findById(Long id) {
-        return studentInfoDao.selectByPrimaryKey(id);
+    public StudentInfo findById(Long ID) {
+
+//        return studentInfoDao.selectByPrimaryKey(ID);
+        return studentInfoDao.SelectByIdJoinXueyuan(ID);
     }
 
     public void update(StudentInfo studentInfo) {
@@ -90,8 +92,10 @@ public class StudentInfoService {
     }
 
     public PageInfo<StudentInfo> findPageSearch(Integer pageNum, Integer pageSize, String search) {
-        PageHelper.startPage(pageNum, pageSize, search);
+        PageHelper.startPage(pageNum, pageSize);
+
         List<StudentInfo> list = studentInfoDao.findByLikeName(search);
+
         return PageInfo.of(list);
     }
 
