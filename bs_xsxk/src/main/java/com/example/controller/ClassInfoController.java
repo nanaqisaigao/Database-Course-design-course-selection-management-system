@@ -85,4 +85,19 @@ public class ClassInfoController {
 
         return Result.success();
     }
+    @DeleteMapping("/tuike/{name}")
+    public Result tuike(@PathVariable String name,HttpServletRequest request){
+        //选课人数为0无法退课（前端实现）
+
+        Account user = (Account) request.getSession().getAttribute("user");//拿到当前登录用户
+        //防止登录失效
+        if(ObjectUtil.isEmpty(user)){
+            throw new CustomException("-1","登陆已失效，请重新登录");
+        }
+        //退课
+        Long studentId = user.getId();
+        xuankeInfoService.tuike(name,studentId);
+
+        return Result.success();
+    }
 }

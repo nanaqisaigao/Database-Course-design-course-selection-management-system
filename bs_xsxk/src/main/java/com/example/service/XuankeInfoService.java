@@ -32,4 +32,8 @@ public class XuankeInfoService {
     public XuankeInfo selectByThreeInfo(String name, Long studentId) {
         return xuankeInfoDao.selectByThreeInfo(name, studentId);
     }
+
+    public void tuike(String classname, Long studentId) {
+        xuankeInfoDao.tuike(classname,studentId);
+    }
 }

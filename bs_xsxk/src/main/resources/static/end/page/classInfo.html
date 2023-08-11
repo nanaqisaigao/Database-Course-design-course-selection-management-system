@@ -173,7 +173,7 @@
                                                         class="btn btn-sm btn-primary" @click="xuanke(obj)">选课
                                                 </button>
                                                 <button v-if="user.level === 3" :disabled="'0' === obj.yixuan"
-                                                        class="btn btn-sm btn-primary" @click="tuike(obj.name)">选课
+                                                        class="btn btn-sm btn-danger" @click="tuike(obj.name)">退课
                                                 </button>
                                                 <button v-if="user.level === 1" class="btn btn-sm btn-primary"
                                                         @click="init(obj)">编辑
@@ -424,9 +424,24 @@
                 })
             },
             tuike(name){
-                axios.del("/classInfo/tuike",JSON.parse(JSON.stringify(name))).then(res=>{
-                    
-                })
+                let _this = this;//为了把弹出框的this和删除后的loadTable的this分开
+                this.$confirm('确认删除？', '系统提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    cancelButtonClass: 'btn-custom-cancel',
+                    type: 'warning'
+                }).then(function () {
+                    axios.delete("/classInfo/tuike/" + name).then(res => {
+                        if (res.data.code === '0') {
+                            msg("success", "退课成功");
+                            this.loadTable();
+                        } else {
+                            msg("error", res.data.msg)
+                        }
+                    })
+                }).catch(function () {
+                    console.log("取消成功！");
+                });
             },
 
             logout() {
