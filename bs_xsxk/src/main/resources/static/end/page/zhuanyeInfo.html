@@ -129,6 +129,7 @@
                                     <table class="table table-striped table-bordered table-hover">
                                         <thead>
                                         <tr>
+                                            <th>专业Id</th>
                                             <th>专业名称</th>
                                             <th>系名</th>
                                             <th>所属学院</th>
@@ -137,10 +138,11 @@
                                         </thead>
                                         <tbody v-for="obj in tableData">
                                         <tr>
+                                            <td>{{obj.id}}</td>
                                             <td>{{obj.name}}</td>
                                             <td>{{obj.department}}</td>
                                             <td>{{obj.xueyuanName}}</td>
-                                            <td>
+                                            <td v-if="user.level === 1">
                                                 <button v-if="user.level === 1" class="btn btn-sm btn-primary" @click="init(obj)">编辑</button>
                                                 <button v-if="user.level === 1" class="btn btn-sm btn-danger" @click="del(obj.id)">删除</button>
                                             </td>

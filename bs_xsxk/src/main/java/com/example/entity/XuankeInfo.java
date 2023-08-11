@@ -2,8 +2,8 @@ package com.example.entity;
 
 import javax.persistence.*;
 
-@Table(name="class_info")
-public class ClassInfo {
+@Table(name="xuanke_info")
+public class XuankeInfo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,17 +20,20 @@ public class ClassInfo {
     private String time;
     @Column(name = "location")
     private String location;
-    @Column(name = "yixuan")
-    private Integer yixuan;
     //下面两个属性分别和教师模块，学生模块关联
     @Column(name = "teacherId")
     private Long teacherId;
+    @Column(name = "studentId")
+    private Long studentId;
     @Column(name = "zhuanyeId")
     private Long zhuanyeId;
+    @Column(name = "status")
+    private String status;
     @Transient
     private String teacherName;
     @Transient
     private String zhuanyeName;
+
 
     public Long getId() {
         return id;
@@ -88,14 +91,6 @@ public class ClassInfo {
         this.location = location;
     }
 
-    public Integer getYixuan() {
-        return yixuan;
-    }
-
-    public void setYixuan(Integer yixuan) {
-        this.yixuan = yixuan;
-    }
-
     public Long getTeacherId() {
         return teacherId;
     }
@@ -104,12 +99,28 @@ public class ClassInfo {
         this.teacherId = teacherId;
     }
 
+    public Long getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(Long studentId) {
+        this.studentId = studentId;
+    }
+
     public Long getZhuanyeId() {
         return zhuanyeId;
     }
 
     public void setZhuanyeId(Long zhuanyeId) {
         this.zhuanyeId = zhuanyeId;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getTeacherName() {
@@ -127,6 +138,4 @@ public class ClassInfo {
     public void setZhuanyeName(String zhuanyeName) {
         this.zhuanyeName = zhuanyeName;
     }
-
-
 }

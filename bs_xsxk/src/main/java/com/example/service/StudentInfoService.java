@@ -48,8 +48,8 @@ public class StudentInfoService {
 
     public StudentInfo findById(Long ID) {
 
-//        return studentInfoDao.selectByPrimaryKey(ID);
-        return studentInfoDao.SelectByIdJoinXueyuan(ID);
+        return studentInfoDao.selectByPrimaryKey(ID);
+//        return studentInfoDao.SelectByIdJoinXueyuan(ID);  有bug
     }
 
     public void update(StudentInfo studentInfo) {

@@ -129,11 +129,30 @@
                                     <table class="table table-striped table-bordered table-hover">
                                         <thead>
                                         <tr>
-
+                                            <th>课程名称</th>
+                                            <th>课程介绍</th>
+                                            <th>课程学分</th>
+                                            <th>授课教师</th>
+                                            <th>所属专业</th>
+                                            <th>开班人数</th>
+                                            <th>上课时段</th>
+                                            <th>上课地点</th>
+                                            <th>选课学生</th>
+                                            <th>课程状态</th>
                                         </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody v-for="obj in tableData">
                                         <tr>
+                                            <td>{{obj.name}}</td>
+                                            <td>{{obj.description}}</td>
+                                            <td>{{obj.score}}</td>
+                                            <td>{{obj.teacherId}}</td>
+                                            <td>{{obj.zhuanyeId}}</td>
+                                            <td>{{obj.kaiban}}</td>
+                                            <td>{{obj.time}}</td>
+                                            <td>{{obj.location}}</td>
+                                            <td>{{obj.studentId}}</td>
+                                            <td>{{obj.status}}</td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -195,7 +214,8 @@
         el: '#wrapper',
         data: {
             user: {},
-            entity: {}
+            entity: {},
+            tableData: []
         },
         created: function () {
             const menuHeight = document.getElementById("main-menu").getElementsByTagName('li').length * 53;
@@ -203,12 +223,20 @@
             document.getElementById("nav-id").style.height = (menuHeight > bodyHeight ? menuHeight : bodyHeight) + 'px';
             this.user = JSON.parse(localStorage.getItem('user'));
 
-
-
+            this.loadTable();
 
         },
         methods: {
 
+            loadTable(){
+                axios.get("/xuankeInfo").then(res=>{
+                    if(res.data.code ==='0'){
+                    this.tableData = res.data.data;
+                    }else{
+                        msg('error',res.data.msg);
+                    }
+                })
+            },
             logout() {
                 logout();
             }

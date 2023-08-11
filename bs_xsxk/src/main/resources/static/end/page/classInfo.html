@@ -409,6 +409,18 @@
                     console.log("取消成功！");
                 });
             },
+
+            xuanke(obj) {
+                axios.post("/classInfo/xuanke", JSON.parse(JSON.stringify(obj))).then(res => {
+                    if (res.data.code === '0') {
+                        msg("success", "选课成功");
+                        this.loadTable();
+                    } else {
+                        msg("error", res.data.msg)
+                    }
+                })
+            },
+
             logout() {
                 logout();
             }
