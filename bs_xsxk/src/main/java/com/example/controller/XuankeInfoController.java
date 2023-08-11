@@ -19,7 +19,7 @@ public class XuankeInfoController {
 
     @GetMapping
     public Result findAll(){
-        List<XuankeInfo> list = xuankeInfoService.findAll();
+        List<XuankeInfo> list = xuankeInfoService.findAllJoinTeacherAndZhuanye();
         return Result.success(list);
     };
 

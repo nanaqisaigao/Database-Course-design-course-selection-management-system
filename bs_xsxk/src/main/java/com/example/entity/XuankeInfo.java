@@ -33,7 +33,16 @@ public class XuankeInfo {
     private String teacherName;
     @Transient
     private String zhuanyeName;
+    @Transient
+    private String studentName;
 
+    public String getStudentName() {
+        return studentName;
+    }
+
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
+    }
 
     public Long getId() {
         return id;

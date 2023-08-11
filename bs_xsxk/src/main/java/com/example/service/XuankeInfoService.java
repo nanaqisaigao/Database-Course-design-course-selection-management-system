@@ -12,9 +12,7 @@ public class XuankeInfoService {
     @Resource
     private XuankeInfoDao xuankeInfoDao;
 
-    public List<XuankeInfo> findAll() {
-        return xuankeInfoDao.selectAll();
-    }
+
 
     public void add(XuankeInfo xuankeInfo) {
         xuankeInfoDao.insertSelective(xuankeInfo);
@@ -22,5 +20,12 @@ public class XuankeInfoService {
 
     public XuankeInfo selectByStudentId(Long id) {
         return xuankeInfoDao.SelectByStudentId(id);
+    }
+
+    public List<XuankeInfo> findAll() {
+        return xuankeInfoDao.selectAll();
+    }
+    public List<XuankeInfo> findAllJoinTeacherAndZhuanye() {
+        return xuankeInfoDao.findAllJoinTeacherAndZhuanye();
     }
 }
