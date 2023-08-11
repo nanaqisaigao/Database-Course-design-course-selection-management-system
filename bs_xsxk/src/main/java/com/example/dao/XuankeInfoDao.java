@@ -11,8 +11,7 @@ import java.util.List;
 @Repository
 public interface XuankeInfoDao extends Mapper<XuankeInfo> {
 
-    @Select("SELECT * FROM xuanke_info WHERE studentId = #{ID}")
-    XuankeInfo SelectByStudentId(@Param("ID") Long ID);
+
 
     @Select("SELECT a.*,b.name AS teacherName,c.name AS studentName,d.name AS zhuanyeName\n" +
             "FROM xuanke_info AS a\n" +
@@ -21,4 +20,10 @@ public interface XuankeInfoDao extends Mapper<XuankeInfo> {
             "INNER JOIN zhuanye_info AS d\n" +
             "ON a.teacherId=b.id AND a.studentId=c.id AND a.zhuanyeId = d.id")
     List<XuankeInfo> findAllJoinTeacherAndZhuanye();
+
+//    @Select("SELECT * FROM xuanke_info WHERE studentId = #{ID}")
+//    XuankeInfo SelectByStudentId(@Param("ID") Long ID); 这个会导致一个人只能选一门课
+
+    @Select("SELECT * FROM xuanke_info WHERE studentId=#{studentId} AND name=#{name}")
+    XuankeInfo selectByThreeInfo(@Param("name") String name, @Param("studentId") Long studentId);
 }

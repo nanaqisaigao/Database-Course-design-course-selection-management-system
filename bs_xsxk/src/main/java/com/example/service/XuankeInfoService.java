@@ -18,14 +18,18 @@ public class XuankeInfoService {
         xuankeInfoDao.insertSelective(xuankeInfo);
     }
 
-    public XuankeInfo selectByStudentId(Long id) {
-        return xuankeInfoDao.SelectByStudentId(id);
-    }
+
 
     public List<XuankeInfo> findAll() {
         return xuankeInfoDao.selectAll();
     }
     public List<XuankeInfo> findAllJoinTeacherAndZhuanye() {
         return xuankeInfoDao.findAllJoinTeacherAndZhuanye();
+    }
+//    public XuankeInfo selectByStudentId(Long id) {
+//        return xuankeInfoDao.SelectByStudentId(id);
+//    }这会导致一个人只能选一门课
+    public XuankeInfo selectByThreeInfo(String name, Long studentId) {
+        return xuankeInfoDao.selectByThreeInfo(name, studentId);
     }
 }

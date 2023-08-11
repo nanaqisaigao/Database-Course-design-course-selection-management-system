@@ -65,8 +65,7 @@ public class ClassInfoController {
             throw new CustomException("-1","登陆已失效，请重新登录");
         }
         //防止重复选一门课
-        Long id = user.getId();
-        if(ObjectUtil.isNotEmpty(xuankeInfoService.selectByStudentId(id))){
+        if(ObjectUtil.isNotEmpty(xuankeInfoService.selectByThreeInfo(classInfo.getName(),user.getId()))){
             throw new CustomException("-1","你已经选过了");
         }
         //1,把课程信息塞进选课信息表里
