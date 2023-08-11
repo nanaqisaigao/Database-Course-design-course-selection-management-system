@@ -19,4 +19,8 @@ public class XuankeInfoService {
     public void add(XuankeInfo xuankeInfo) {
         xuankeInfoDao.insertSelective(xuankeInfo);
     }
+
+    public XuankeInfo selectByStudentId(Long id) {
+        return xuankeInfoDao.SelectByStudentId(id);
+    }
 }

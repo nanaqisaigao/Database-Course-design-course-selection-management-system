@@ -59,8 +59,15 @@ public class ClassInfoController {
 //            throw new CustomException("-1", "选课人数已满");
 //        }
         Account user = (Account) request.getSession().getAttribute("user");//拿到当前登录用户
+
+        //防止登录失效
         if(ObjectUtil.isEmpty(user)){
             throw new CustomException("-1","登陆已失效，请重新登录");
+        }
+        //防止重复选一门课
+        Long id = user.getId();
+        if(ObjectUtil.isNotEmpty(xuankeInfoService.selectByStudentId(id))){
+            throw new CustomException("-1","你已经选过了");
         }
         //1,把课程信息塞进选课信息表里
         XuankeInfo xuankeInfo=new XuankeInfo();
