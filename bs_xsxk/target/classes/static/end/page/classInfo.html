@@ -138,7 +138,7 @@
                             <div class="panel-body">
                                 <div class="table-responsive">
                                     <div class="nx-table-header">
-                                        <button  v-if="user.level === 1" class="btn btn-sm btn-primary ">新增</button>
+                                        <button  v-if="user.level === 1" class="btn btn-sm btn-primary " @click="add()">新增</button>
                                         <input type="text" placeholder="请输入搜索内容" v-model="search" @keyup.enter="loadTable(1)">
                                         <i class="glyphicon glyphicon-search"></i>
                                     </div>
