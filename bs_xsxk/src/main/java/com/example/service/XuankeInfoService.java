@@ -36,4 +36,12 @@ public class XuankeInfoService {
     public void tuike(String classname, Long studentId) {
         xuankeInfoDao.tuike(classname,studentId);
     }
+
+    public List<XuankeInfo> findAllJoinTeacherAndZhuanyeThroughTeacherId(Long teacherId) {
+        return xuankeInfoDao.findAllJoinTeacherAndZhuanyeThroughTeacherId(teacherId);
+    }
+
+    public List<XuankeInfo> findAllJoinTeacherAndZhuanyeThroughStudentId(Long studentId) {
+        return xuankeInfoDao.findAllJoinTeacherAndZhuanyeThroughStudentId(studentId);
+    }
 }

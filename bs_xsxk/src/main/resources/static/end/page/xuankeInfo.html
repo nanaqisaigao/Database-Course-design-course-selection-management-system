@@ -213,7 +213,8 @@
         data: {
             user: {},
             entity: {},
-            tableData: []
+            tableData: [],
+            // sortedTableData: [], 有bug
         },
         created: function () {
             const menuHeight = document.getElementById("main-menu").getElementsByTagName('li').length * 53;
@@ -226,18 +227,26 @@
         },
         methods: {
 
-            loadTable(){
-                axios.get("/xuankeInfo").then(res=>{
-                    if(res.data.code ==='0'){
-                    this.tableData = res.data.data;
-                    }else{
-                        msg('error',res.data.msg);
+            /*            sortTable(property) {
+                this.sortedTableData = this.tableData.slice().sort((a, b) => {
+                    if (a[property] < b[property]) return -1;
+                    if (a[property] > b[property]) return 1;
+                });
+            },
+        },          有bug无法使用排序*/
+
+            loadTable() {
+                axios.get("/xuankeInfo").then(res => {
+                    if (res.data.code === '0') {
+                        this.tableData = res.data.data;
+                    } else {
+                        msg('error', res.data.msg);
                     }
                 })
             },
             logout() {
                 logout();
-            }
+            },
         }
     })
 </script>

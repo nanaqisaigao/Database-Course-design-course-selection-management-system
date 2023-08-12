@@ -30,4 +30,23 @@ public interface XuankeInfoDao extends Mapper<XuankeInfo> {
 
     @Delete("DELETE FROM xuanke_info WHERE name = #{classname} AND studentId = #{studentId}")
     void tuike(@Param("classname") String classname, @Param("studentId") Long studentId);
+
+    @Select("SELECT a.*,b.name AS teacherName,c.name AS studentName,d.name AS zhuanyeName\n" +
+            "FROM xuanke_info AS a\n" +
+            "INNER JOIN teacher_info AS b\n" +
+            "INNER JOIN student_info AS c\n" +
+            "INNER JOIN zhuanye_info AS d\n" +
+            "ON a.teacherId=b.id AND a.studentId=c.id AND a.zhuanyeId = d.id\n" +
+            "WHERE  a.teacherId=#{teacherId}"    )
+    List<XuankeInfo> findAllJoinTeacherAndZhuanyeThroughTeacherId(@Param("teacherId") Long teacherId);
+
+    @Select("SELECT a.*,b.name AS teacherName,c.name AS studentName,d.name AS zhuanyeName\n" +
+            "FROM xuanke_info AS a\n" +
+            "INNER JOIN teacher_info AS b\n" +
+            "INNER JOIN student_info AS c\n" +
+            "INNER JOIN zhuanye_info AS d\n" +
+            "ON a.teacherId=b.id AND a.studentId=c.id AND a.zhuanyeId = d.id\n" +
+            "WHERE  a.studentId=#{studentId}")
+    List<XuankeInfo> findAllJoinTeacherAndZhuanyeThroughStudentId(@Param("studentId") Long studentId);
+
 }
