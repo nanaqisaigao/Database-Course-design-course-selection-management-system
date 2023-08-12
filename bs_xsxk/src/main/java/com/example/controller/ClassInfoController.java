@@ -95,6 +95,12 @@ public class ClassInfoController {
             throw new CustomException("-1","登陆已失效，请重新登录");
         }
         //退课
+        XuankeInfo xuankeInfo = new XuankeInfo();
+        xuankeInfo = xuankeInfoService.selectByThreeInfo(name,user.getId());
+        if(xuankeInfo.getStatus().equals("已开课")){
+            throw new CustomException("-1","已开课无法退课");
+        }
+
         Long studentId = user.getId();
         xuankeInfoService.tuike(name,studentId);
 

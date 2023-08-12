@@ -11,9 +11,6 @@ import java.util.List;
 
 @Repository
 public interface XuankeInfoDao extends Mapper<XuankeInfo> {
-
-
-
     @Select("SELECT a.*,b.name AS teacherName,c.name AS studentName,d.name AS zhuanyeName\n" +
             "FROM xuanke_info AS a\n" +
             "INNER JOIN teacher_info AS b\n" +

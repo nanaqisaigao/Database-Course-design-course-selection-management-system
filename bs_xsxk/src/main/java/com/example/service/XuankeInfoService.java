@@ -44,4 +44,8 @@ public class XuankeInfoService {
     public List<XuankeInfo> findAllJoinTeacherAndZhuanyeThroughStudentId(Long studentId) {
         return xuankeInfoDao.findAllJoinTeacherAndZhuanyeThroughStudentId(studentId);
     }
+
+    public void update(XuankeInfo xuankeInfo) {
+       xuankeInfoDao.updateByPrimaryKeySelective(xuankeInfo);
+    }
 }
