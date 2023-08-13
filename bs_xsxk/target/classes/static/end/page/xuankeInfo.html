@@ -251,7 +251,7 @@
             },
             kaike(obj){
               obj.status ="已开课";
-              axios.put("/xuankeInfo/xuanke",obj).then(res=> {
+              axios.put("/xuankeInfo/kaike",obj).then(res=> {
                   if (res.data.code === '0') {
                       msg('success', '开课成功');
                       this.loadTable();
@@ -261,6 +261,12 @@
               })
             },
             jieke(obj){
+                this.$confirm('确认结课？', '系统提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    cancelButtonClass: 'btn-custom-cancel',
+                    type: 'warning'
+                }).then(function () {
               obj.status = "已结课";
               axios.put("/xuankeInfo/jieke",obj).then(res=> {
                   if (res.data.code === '0') {
@@ -270,7 +276,9 @@
                       msg('error', res.data.msg);
                   }
               })
-
+                }).catch(function () {
+                    console.log("取消成功！");
+                });
             },
             logout(){
                 logout();
