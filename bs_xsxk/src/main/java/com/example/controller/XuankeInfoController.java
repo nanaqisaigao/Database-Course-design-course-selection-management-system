@@ -52,8 +52,8 @@ public class XuankeInfoController {
 
     ;
 
-    @PutMapping("/xuanke")
-    public Result xuankeupdate(@RequestBody XuankeInfo xuankeInfo) {
+    @PutMapping("/kaike")
+    public Result kaikeupdate(@RequestBody XuankeInfo xuankeInfo) {
         xuankeInfoService.update(xuankeInfo);
         return Result.success();
     }
