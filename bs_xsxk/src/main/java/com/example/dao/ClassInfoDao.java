@@ -26,4 +26,6 @@ public interface ClassInfoDao extends Mapper<ClassInfo> {
             "ON a.teacherId = b.id AND a.zhuanyeId = c.id")
     List<ClassInfo> findAll();
 
+    @Select("select * from class_info where name = #{name}")
+    ClassInfo selectByName(@Param("name") String name);
 }

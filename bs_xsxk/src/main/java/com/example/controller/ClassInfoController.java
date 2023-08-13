@@ -100,8 +100,12 @@ public class ClassInfoController {
         if(xuankeInfo.getStatus().equals("已开课")){
             throw new CustomException("-1","已开课无法退课");
         }
-
         Long studentId = user.getId();
+        //退课后课程选择人数减一
+        ClassInfo classInfo = classInfoService.selectByName(name);
+        classInfo.setYixuan(classInfo.getYixuan()-1);
+        classInfoService.update(classInfo);
+
         xuankeInfoService.tuike(name,studentId);
 
         return Result.success();

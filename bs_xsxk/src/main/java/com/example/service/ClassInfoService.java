@@ -33,4 +33,8 @@ public class ClassInfoService {
     public List<ClassInfo> findSearch(String search) {
         return classInfoDao.findSearch(search);
     }
+
+    public ClassInfo selectByName(String name) {
+        return classInfoDao.selectByName(name);
+    }
 }
