@@ -3,8 +3,10 @@ package com.example.controller;
 import cn.hutool.core.util.ObjectUtil;
 import com.example.common.Result;
 import com.example.entity.Account;
+import com.example.entity.StudentInfo;
 import com.example.entity.XuankeInfo;
 import com.example.exception.CustomException;
+import com.example.service.StudentInfoService;
 import com.example.service.XuankeInfoService;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,10 +16,12 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 
 @RestController
-@RequestMapping("xuankeInfo")
+@RequestMapping("/xuankeInfo")
 public class XuankeInfoController {
     @Resource
     XuankeInfoService xuankeInfoService;
+    @Resource
+    StudentInfoService studentInfoService;
 
     @GetMapping
     public Result findAll(HttpServletRequest request) {//根据登录的用户是谁，来显示只能和自己相关的选课内容，不能侵犯他人隐私
@@ -48,10 +52,23 @@ public class XuankeInfoController {
 
     ;
 
-    @PutMapping
-    public Result update(@RequestBody XuankeInfo xuankeInfo) {
+    @PutMapping("/xuanke")
+    public Result xuankeupdate(@RequestBody XuankeInfo xuankeInfo) {
         xuankeInfoService.update(xuankeInfo);
         return Result.success();
     }
+
+    @PutMapping("/jieke")
+    public Result jiekeupdate(@RequestBody XuankeInfo xuankeInfo) {
+        //给选课学生增加学分
+        Long studentId = xuankeInfo.getStudentId();
+        StudentInfo student = studentInfoService.findById(studentId);
+        student.setScore(student.getScore()+ xuankeInfo.getScore());
+        studentInfoService.update(student);
+        //更新课程状态
+        xuankeInfoService.update(xuankeInfo);
+        return Result.success();
+    }
+
 
 }

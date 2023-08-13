@@ -153,7 +153,8 @@
                                             <td>{{obj.studentName}}</td>
                                             <td>{{obj.status}}</td>
                                             <td v-if="user.level === 2">
-                                                <button v-if="user.level === 2" :disabled="obj.status !== '待开课'" class="btn btn-sm btn-primary" @click="kaike(obj)">开课</button>
+                                                <button v-if="user.level === 2" :disabled="obj.status === '已开课'" class="btn btn-sm btn-primary" @click="kaike(obj)">开课</button>
+                                                <button v-if="user.level === 2" :disabled="obj.status !== '已开课'" class="btn btn-danger btn-primary btn-sm" @click="jieke(obj)">结课</button>
                                             </td>
                                         </tr>
                                         </tbody>
@@ -250,7 +251,7 @@
             },
             kaike(obj){
               obj.status ="已开课";
-              axios.put("/xuankeInfo",obj).then(res=> {
+              axios.put("/xuankeInfo/xuanke",obj).then(res=> {
                   if (res.data.code === '0') {
                       msg('success', '开课成功');
                       this.loadTable();
@@ -259,7 +260,18 @@
                   }
               })
             },
+            jieke(obj){
+              obj.status = "已结课";
+              axios.put("/xuankeInfo/jieke",obj).then(res=> {
+                  if (res.data.code === '0') {
+                      msg('success', '结课成功');
+                      this.loadTable();
+                  } else {
+                      msg('error', res.data.msg);
+                  }
+              })
 
+            },
             logout(){
                 logout();
             },
