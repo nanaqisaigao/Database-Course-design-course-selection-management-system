@@ -1,190 +1,26 @@
-2023-08-13 09:31:17.826  INFO 21420 --- [main] com.example.Application                  : Starting Application on DESKTOP-PIECBM8 with PID 21420 (D:\project\GitHub\Shujuku-program-design\bs_xsxk\target\classes started by 28044 in D:\project\GitHub\Shujuku-program-design\bs_xsxk)
-2023-08-13 09:31:17.826  INFO 21420 --- [main] com.example.Application                  : No active profile set, falling back to default profiles: default
-2023-08-13 09:31:18.157  WARN 21420 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example]' package. Please check your configuration.
-2023-08-13 09:31:18.471  INFO 21420 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
-2023-08-13 09:31:18.487  INFO 21420 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-08-13 09:31:18.487  INFO 21420 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
-2023-08-13 09:31:18.487  INFO 21420 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_333\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Java\jdk1.8.0_333\bin;C:\Program Files\Java\jdk1.8.0_333\jre\bin;";C:\Windows\System32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\system32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Git\cmd";C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Users\28044\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\28044\AppData\Local\Programs\Python\Python310\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;%NVM_HOME%;%NVM_SYMLINK%;C:\Program Files\Redis\;D:\StudyProgramInstall\学习软件安装文件夹\;D:\StudyProgramInstall\Xftp7\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\28044\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;D:\学习软件安装\Microsoft VS Code\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2022.1.3\bin;;C:\Users\28044\.dotnet\tools;D:\QQGameTempest\Hall.57915\;C:\Program Files\JetBrains\PyCharm Community Edition 2022.3.3\bin;;C:\Users\28044\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\28044\AppData\Local\Programs\Python\Python310\;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Users\28044\AppData\Roaming\npm;C:\Users\28044\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\28044\AppData\Local\GitHubDesktop\bin;.]
-2023-08-13 09:31:18.534  INFO 21420 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-08-13 09:31:18.534  INFO 21420 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 677 ms
-2023-08-13 09:31:18.550  INFO 21420 --- [main] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
-2023-08-13 09:31:18.565  INFO 21420 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
-2023-08-13 09:31:18.565  INFO 21420 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
-2023-08-13 09:31:18.565  INFO 21420 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
-2023-08-13 09:31:18.565  INFO 21420 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
-2023-08-13 09:31:18.959  INFO 21420 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2023-08-13 09:31:19.116  INFO 21420 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path ''
-2023-08-13 09:31:19.116  INFO 21420 --- [main] com.example.Application                  : Started Application in 1.528 seconds (JVM running for 2.218)
-2023-08-13 09:31:19.116  INFO 21420 --- [main] com.example.common.config.OpenBrowser    : 项目启动成功……
-2023-08-13 09:31:19.427  INFO 21420 --- [http-nio-8888-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-08-13 09:31:19.428  INFO 21420 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-08-13 09:31:19.432  INFO 21420 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
-2023-08-13 09:31:22.935  INFO 21420 --- [http-nio-8888-exec-8] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-08-13 09:31:22.993  INFO 21420 --- [http-nio-8888-exec-8] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-08-13 09:50:16.589  INFO 21420 --- [Thread-4] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2023-08-13 09:50:16.590  INFO 21420 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-08-13 09:50:16.594  INFO 21420 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-08-13 09:50:21.523  INFO 6960 --- [main] com.example.Application                  : Starting Application on DESKTOP-PIECBM8 with PID 6960 (D:\project\GitHub\Shujuku-program-design\bs_xsxk\target\classes started by 28044 in D:\project\GitHub\Shujuku-program-design\bs_xsxk)
-2023-08-13 09:50:21.525  INFO 6960 --- [main] com.example.Application                  : No active profile set, falling back to default profiles: default
-2023-08-13 09:50:21.822  WARN 6960 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example]' package. Please check your configuration.
-2023-08-13 09:50:22.123  INFO 6960 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
-2023-08-13 09:50:22.132  INFO 6960 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-08-13 09:50:22.132  INFO 6960 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
-2023-08-13 09:50:22.136  INFO 6960 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_333\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Java\jdk1.8.0_333\bin;C:\Program Files\Java\jdk1.8.0_333\jre\bin;";C:\Windows\System32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\system32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Git\cmd";C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Users\28044\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\28044\AppData\Local\Programs\Python\Python310\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;%NVM_HOME%;%NVM_SYMLINK%;C:\Program Files\Redis\;D:\StudyProgramInstall\学习软件安装文件夹\;D:\StudyProgramInstall\Xftp7\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\28044\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;D:\学习软件安装\Microsoft VS Code\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2022.1.3\bin;;C:\Users\28044\.dotnet\tools;D:\QQGameTempest\Hall.57915\;C:\Program Files\JetBrains\PyCharm Community Edition 2022.3.3\bin;;C:\Users\28044\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\28044\AppData\Local\Programs\Python\Python310\;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Users\28044\AppData\Roaming\npm;C:\Users\28044\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\28044\AppData\Local\GitHubDesktop\bin;.]
-2023-08-13 09:50:22.203  INFO 6960 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-08-13 09:50:22.203  INFO 6960 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 657 ms
-2023-08-13 09:50:22.217  INFO 6960 --- [main] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
-2023-08-13 09:50:22.220  INFO 6960 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
-2023-08-13 09:50:22.220  INFO 6960 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
-2023-08-13 09:50:22.220  INFO 6960 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
-2023-08-13 09:50:22.220  INFO 6960 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
-2023-08-13 09:50:22.630  INFO 6960 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2023-08-13 09:50:22.775  INFO 6960 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path ''
-2023-08-13 09:50:22.777  INFO 6960 --- [main] com.example.Application                  : Started Application in 1.455 seconds (JVM running for 2.036)
-2023-08-13 09:50:22.778  INFO 6960 --- [main] com.example.common.config.OpenBrowser    : 项目启动成功……
-2023-08-13 09:50:39.334  INFO 6960 --- [http-nio-8888-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-08-13 09:50:39.335  INFO 6960 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-08-13 09:50:39.339  INFO 6960 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
-2023-08-13 09:50:39.401  INFO 6960 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-08-13 09:50:39.457  INFO 6960 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-08-13 12:57:24.265  INFO 6960 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2023-08-13 12:57:24.271  INFO 6960 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-08-13 12:57:24.274  INFO 6960 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-08-13 12:57:28.852  INFO 28532 --- [main] com.example.Application                  : Starting Application on DESKTOP-PIECBM8 with PID 28532 (D:\project\GitHub\Shujuku-program-design\bs_xsxk\target\classes started by 28044 in D:\project\GitHub\Shujuku-program-design\bs_xsxk)
-2023-08-13 12:57:28.853  INFO 28532 --- [main] com.example.Application                  : No active profile set, falling back to default profiles: default
-2023-08-13 12:57:29.178  WARN 28532 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example]' package. Please check your configuration.
-2023-08-13 12:57:29.554  INFO 28532 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
-2023-08-13 12:57:29.565  INFO 28532 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-08-13 12:57:29.565  INFO 28532 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
-2023-08-13 12:57:29.570  INFO 28532 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_333\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Java\jdk1.8.0_333\bin;C:\Program Files\Java\jdk1.8.0_333\jre\bin;";C:\Windows\System32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\system32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Git\cmd";C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Users\28044\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\28044\AppData\Local\Programs\Python\Python310\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;%NVM_HOME%;%NVM_SYMLINK%;C:\Program Files\Redis\;D:\StudyProgramInstall\学习软件安装文件夹\;D:\StudyProgramInstall\Xftp7\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\28044\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;D:\学习软件安装\Microsoft VS Code\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2022.1.3\bin;;C:\Users\28044\.dotnet\tools;D:\QQGameTempest\Hall.57915\;C:\Program Files\JetBrains\PyCharm Community Edition 2022.3.3\bin;;C:\Users\28044\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\28044\AppData\Local\Programs\Python\Python310\;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Users\28044\AppData\Roaming\npm;C:\Users\28044\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\28044\AppData\Local\GitHubDesktop\bin;.]
-2023-08-13 12:57:29.632  INFO 28532 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-08-13 12:57:29.633  INFO 28532 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 757 ms
-2023-08-13 12:57:29.647  INFO 28532 --- [main] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
-2023-08-13 12:57:29.649  INFO 28532 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
-2023-08-13 12:57:29.649  INFO 28532 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
-2023-08-13 12:57:29.649  INFO 28532 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
-2023-08-13 12:57:29.650  INFO 28532 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
-2023-08-13 12:57:30.093  INFO 28532 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2023-08-13 12:57:30.253  INFO 28532 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path ''
-2023-08-13 12:57:30.255  INFO 28532 --- [main] com.example.Application                  : Started Application in 1.651 seconds (JVM running for 2.381)
-2023-08-13 12:57:30.256  INFO 28532 --- [main] com.example.common.config.OpenBrowser    : 项目启动成功……
-2023-08-13 12:57:38.761  INFO 28532 --- [http-nio-8888-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-08-13 12:57:38.761  INFO 28532 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-08-13 12:57:38.765  INFO 28532 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
-2023-08-13 13:05:14.583  INFO 28532 --- [http-nio-8888-exec-9] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-08-13 13:05:14.655  INFO 28532 --- [http-nio-8888-exec-9] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-08-13 15:51:43.867  WARN 28532 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h56m58s273ms122µs800ns).
-2023-08-13 17:41:57.753  INFO 28532 --- [Thread-6] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2023-08-13 17:41:57.756  INFO 28532 --- [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-08-13 17:41:57.762  INFO 28532 --- [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-08-13 17:42:01.866  INFO 2676 --- [main] com.example.Application                  : Starting Application on DESKTOP-PIECBM8 with PID 2676 (D:\project\GitHub\Shujuku-program-design\bs_xsxk\target\classes started by 28044 in D:\project\GitHub\Shujuku-program-design\bs_xsxk)
-2023-08-13 17:42:01.868  INFO 2676 --- [main] com.example.Application                  : No active profile set, falling back to default profiles: default
-2023-08-13 17:42:02.212  WARN 2676 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example]' package. Please check your configuration.
-2023-08-13 17:42:02.563  INFO 2676 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
-2023-08-13 17:42:02.574  INFO 2676 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-08-13 17:42:02.574  INFO 2676 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
-2023-08-13 17:42:02.578  INFO 2676 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_333\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Java\jdk1.8.0_333\bin;C:\Program Files\Java\jdk1.8.0_333\jre\bin;";C:\Windows\System32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\system32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Git\cmd";C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Users\28044\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\28044\AppData\Local\Programs\Python\Python310\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;%NVM_HOME%;%NVM_SYMLINK%;C:\Program Files\Redis\;D:\StudyProgramInstall\学习软件安装文件夹\;D:\StudyProgramInstall\Xftp7\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\28044\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;D:\学习软件安装\Microsoft VS Code\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2022.1.3\bin;;C:\Users\28044\.dotnet\tools;D:\QQGameTempest\Hall.57915\;C:\Program Files\JetBrains\PyCharm Community Edition 2022.3.3\bin;;C:\Users\28044\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\28044\AppData\Local\Programs\Python\Python310\;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Users\28044\AppData\Roaming\npm;C:\Users\28044\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\28044\AppData\Local\GitHubDesktop\bin;.]
-2023-08-13 17:42:02.637  INFO 2676 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-08-13 17:42:02.637  INFO 2676 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 740 ms
-2023-08-13 17:42:02.651  INFO 2676 --- [main] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
-2023-08-13 17:42:02.653  INFO 2676 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
-2023-08-13 17:42:02.653  INFO 2676 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
-2023-08-13 17:42:02.654  INFO 2676 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
-2023-08-13 17:42:02.654  INFO 2676 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
-2023-08-13 17:42:03.076  INFO 2676 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2023-08-13 17:42:03.236  INFO 2676 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path ''
-2023-08-13 17:42:03.238  INFO 2676 --- [main] com.example.Application                  : Started Application in 1.577 seconds (JVM running for 2.163)
-2023-08-13 17:42:03.239  INFO 2676 --- [main] com.example.common.config.OpenBrowser    : 项目启动成功……
-2023-08-13 17:42:03.558  INFO 2676 --- [http-nio-8888-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-08-13 17:42:03.559  INFO 2676 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-08-13 17:42:03.564  INFO 2676 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
-2023-08-13 17:42:06.090  INFO 2676 --- [http-nio-8888-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-08-13 17:42:06.151  INFO 2676 --- [http-nio-8888-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-08-13 17:42:17.315 ERROR 2676 --- [http-nio-8888-exec-6] c.e.exception.GlobalExceptionHandler     : 异常信息：
-
-java.lang.NullPointerException: null
-	at com.example.controller.ClassInfoController.tuike(ClassInfoController.java:100) ~[classes/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_333]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_333]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_333]
-	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_333]
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:215) ~[spring-web-5.1.2.RELEASE.jar:5.1.2.RELEASE]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:142) ~[spring-web-5.1.2.RELEASE.jar:5.1.2.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102) ~[spring-webmvc-5.1.2.RELEASE.jar:5.1.2.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.1.2.RELEASE.jar:5.1.2.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800) ~[spring-webmvc-5.1.2.RELEASE.jar:5.1.2.RELEASE]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.1.2.RELEASE.jar:5.1.2.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038) ~[spring-webmvc-5.1.2.RELEASE.jar:5.1.2.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942) ~[spring-webmvc-5.1.2.RELEASE.jar:5.1.2.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:998) [spring-webmvc-5.1.2.RELEASE.jar:5.1.2.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.doDelete(FrameworkServlet.java:923) [spring-webmvc-5.1.2.RELEASE.jar:5.1.2.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:666) [tomcat-embed-core-9.0.12.jar:9.0.12]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:875) [spring-webmvc-5.1.2.RELEASE.jar:5.1.2.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) [tomcat-embed-core-9.0.12.jar:9.0.12]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [tomcat-embed-core-9.0.12.jar:9.0.12]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.12.jar:9.0.12]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.12.jar:9.0.12]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.12.jar:9.0.12]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.12.jar:9.0.12]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) [spring-web-5.1.2.RELEASE.jar:5.1.2.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-5.1.2.RELEASE.jar:5.1.2.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.12.jar:9.0.12]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.12.jar:9.0.12]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92) [spring-web-5.1.2.RELEASE.jar:5.1.2.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-5.1.2.RELEASE.jar:5.1.2.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.12.jar:9.0.12]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.12.jar:9.0.12]
-	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) [spring-web-5.1.2.RELEASE.jar:5.1.2.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-5.1.2.RELEASE.jar:5.1.2.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.12.jar:9.0.12]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.12.jar:9.0.12]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) [spring-web-5.1.2.RELEASE.jar:5.1.2.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-5.1.2.RELEASE.jar:5.1.2.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.12.jar:9.0.12]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.12.jar:9.0.12]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199) [tomcat-embed-core-9.0.12.jar:9.0.12]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.12.jar:9.0.12]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490) [tomcat-embed-core-9.0.12.jar:9.0.12]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.12.jar:9.0.12]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.12.jar:9.0.12]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.12.jar:9.0.12]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.12.jar:9.0.12]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408) [tomcat-embed-core-9.0.12.jar:9.0.12]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-9.0.12.jar:9.0.12]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:770) [tomcat-embed-core-9.0.12.jar:9.0.12]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415) [tomcat-embed-core-9.0.12.jar:9.0.12]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.12.jar:9.0.12]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_333]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_333]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.12.jar:9.0.12]
-	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_333]
-
-2023-08-13 17:43:36.578  INFO 2676 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2023-08-13 17:43:36.579  INFO 2676 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-08-13 17:43:36.583  INFO 2676 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-08-13 17:43:40.223  INFO 27108 --- [main] com.example.Application                  : Starting Application on DESKTOP-PIECBM8 with PID 27108 (D:\project\GitHub\Shujuku-program-design\bs_xsxk\target\classes started by 28044 in D:\project\GitHub\Shujuku-program-design\bs_xsxk)
-2023-08-13 17:43:40.225  INFO 27108 --- [main] com.example.Application                  : No active profile set, falling back to default profiles: default
-2023-08-13 17:43:40.513  WARN 27108 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example]' package. Please check your configuration.
-2023-08-13 17:43:40.814  INFO 27108 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
-2023-08-13 17:43:40.824  INFO 27108 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-08-13 17:43:40.824  INFO 27108 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
-2023-08-13 17:43:40.826  INFO 27108 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_333\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Java\jdk1.8.0_333\bin;C:\Program Files\Java\jdk1.8.0_333\jre\bin;";C:\Windows\System32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\system32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Git\cmd";C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Users\28044\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\28044\AppData\Local\Programs\Python\Python310\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;%NVM_HOME%;%NVM_SYMLINK%;C:\Program Files\Redis\;D:\StudyProgramInstall\学习软件安装文件夹\;D:\StudyProgramInstall\Xftp7\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\28044\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;D:\学习软件安装\Microsoft VS Code\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2022.1.3\bin;;C:\Users\28044\.dotnet\tools;D:\QQGameTempest\Hall.57915\;C:\Program Files\JetBrains\PyCharm Community Edition 2022.3.3\bin;;C:\Users\28044\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\28044\AppData\Local\Programs\Python\Python310\;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Users\28044\AppData\Roaming\npm;C:\Users\28044\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\28044\AppData\Local\GitHubDesktop\bin;.]
-2023-08-13 17:43:40.884  INFO 27108 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-08-13 17:43:40.884  INFO 27108 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 639 ms
-2023-08-13 17:43:40.899  INFO 27108 --- [main] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
-2023-08-13 17:43:40.901  INFO 27108 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
-2023-08-13 17:43:40.902  INFO 27108 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
-2023-08-13 17:43:40.902  INFO 27108 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
-2023-08-13 17:43:40.902  INFO 27108 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
-2023-08-13 17:43:41.291  INFO 27108 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2023-08-13 17:43:41.435  INFO 27108 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path ''
-2023-08-13 17:43:41.437  INFO 27108 --- [main] com.example.Application                  : Started Application in 1.411 seconds (JVM running for 2.007)
-2023-08-13 17:43:41.438  INFO 27108 --- [main] com.example.common.config.OpenBrowser    : 项目启动成功……
-2023-08-13 17:43:47.736  INFO 27108 --- [http-nio-8888-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-08-13 17:43:47.736  INFO 27108 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-08-13 17:43:47.740  INFO 27108 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
-2023-08-13 17:43:47.808  INFO 27108 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-08-13 17:43:47.871  INFO 27108 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-08-13 17:55:58.300  INFO 27108 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2023-08-13 17:55:58.301  INFO 27108 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-08-13 17:55:58.304  INFO 27108 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-09-05 10:42:03.155  INFO 10548 --- [main] com.example.Application                  : Starting Application on DESKTOP-PIECBM8 with PID 10548 (started by 28044 in D:\project\GitHub\数据库课程设计\bs_xsxk)
+2023-09-05 10:42:03.159  INFO 10548 --- [main] com.example.Application                  : No active profile set, falling back to default profiles: default
+2023-09-05 10:42:03.521  WARN 10548 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example]' package. Please check your configuration.
+2023-09-05 10:42:03.890  INFO 10548 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2023-09-05 10:42:03.900  INFO 10548 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-09-05 10:42:03.901  INFO 10548 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2023-09-05 10:42:03.905  INFO 10548 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_333\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Java\jdk1.8.0_333\bin;C:\Program Files\Java\jdk1.8.0_333\jre\bin;";C:\Windows\System32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\system32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Git\cmd";C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Users\28044\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\28044\AppData\Local\Programs\Python\Python310\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Users\28044\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\Redis\;D:\StudyProgramInstall\学习软件安装文件夹\;D:\StudyProgramInstall\Xftp7\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\28044\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;D:\学习软件安装\Microsoft VS Code\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2022.1.3\bin;;C:\Users\28044\.dotnet\tools;D:\QQGameTempest\Hall.57915\;C:\Program Files\JetBrains\PyCharm Community Edition 2022.3.3\bin;;C:\Users\28044\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\28044\AppData\Local\Programs\Python\Python310\;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Users\28044\AppData\Roaming\npm;C:\Users\28044\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\28044\AppData\Local\GitHubDesktop\bin;.]
+2023-09-05 10:42:03.965  INFO 10548 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-09-05 10:42:03.966  INFO 10548 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 781 ms
+2023-09-05 10:42:03.982  INFO 10548 --- [main] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2023-09-05 10:42:03.983  INFO 10548 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2023-09-05 10:42:03.983  INFO 10548 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2023-09-05 10:42:03.983  INFO 10548 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2023-09-05 10:42:03.983  INFO 10548 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2023-09-05 10:42:04.492  INFO 10548 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2023-09-05 10:42:04.648  INFO 10548 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path ''
+2023-09-05 10:42:04.650  INFO 10548 --- [main] com.example.Application                  : Started Application in 1.753 seconds (JVM running for 2.533)
+2023-09-05 10:42:04.652  INFO 10548 --- [main] com.example.common.config.OpenBrowser    : 项目启动成功……
+2023-09-05 10:42:05.362  INFO 10548 --- [http-nio-8888-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-05 10:42:05.362  INFO 10548 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-09-05 10:42:05.368  INFO 10548 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2023-09-05 10:42:12.205  INFO 10548 --- [http-nio-8888-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-09-05 10:42:12.753  INFO 10548 --- [http-nio-8888-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-09-05 10:53:50.681  INFO 10548 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2023-09-05 10:53:50.681  INFO 10548 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-09-05 10:53:50.687  INFO 10548 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
